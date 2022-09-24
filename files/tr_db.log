@@ -1,0 +1,1 @@
+  CREATE_STREAM @0 {NAME:seqt1 T:Transactions SCOPE:uvm_test_top.env1.assd.seqr1 STREAM:1118}

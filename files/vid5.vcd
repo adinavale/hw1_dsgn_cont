@@ -1,0 +1,169 @@
+$date
+	Sat Sep 24 14:15:56 2022
+$end
+
+$version
+	Synopsys VCS version R-2020.12
+$end
+
+$timescale
+	1ps
+$end
+
+$comment Csum: 1 6e6d5d7dfdcf2de8 $end
+
+
+$scope module top $end
+$var reg 1 ! clk $end
+$var reg 1 " reset $end
+
+$scope begin unnamed$$_vcs_3 $end
+$upscope $end
+
+
+$scope begin unnamed$$_vcs_0 $end
+$upscope $end
+
+
+$scope begin unnamed$$_vcs_1 $end
+$upscope $end
+
+
+$scope begin unnamed$$_vcs_2 $end
+$upscope $end
+
+
+$scope module i0 $end
+$var reg 1 # clk $end
+$var reg 1 $ reset $end
+$var reg 3 % cmdin [2:0] $end
+$var reg 32 & addrdatain [31:0] $end
+$var reg 1 ' selin $end
+$var reg 2 ( lenin [1:0] $end
+$var reg 3 ) cmdout [2:0] $end
+$var reg 32 * addrdataout [31:0] $end
+$var reg 2 + lenout [1:0] $end
+$var reg 2 , reqout [1:0] $end
+$var reg 4 - reqtar [3:0] $end
+$var reg 1 . ackin $end
+$var reg 1 / hblank $end
+$var reg 1 0 hsync $end
+$var reg 1 1 vblank $end
+$var reg 1 2 vsync $end
+$var reg 8 3 R [7:0] $end
+$var reg 8 4 G [7:0] $end
+$var reg 8 5 B [7:0] $end
+$var reg 1 6 enable $end
+$var reg 1 7 interrupt $end
+$upscope $end
+
+
+$scope module v $end
+$var wire 1 8 clk $end
+$var wire 1 9 reset $end
+$var wire 1 : selin $end
+$var wire 1 ; cmdin $end
+$var wire 1 < lenin $end
+$var wire 1 = addrdatain $end
+$var wire 1 > reqout $end
+$var wire 1 ? lenout $end
+$var wire 1 @ addrdataout $end
+$var wire 1 A cmdout $end
+$var wire 1 B reqtar $end
+$var wire 1 C ackin $end
+$var wire 1 D enable $end
+$var wire 1 E hsync $end
+$var wire 1 F hblank $end
+$var wire 1 G vsync $end
+$var wire 1 H vblank $end
+$var wire 1 I R $end
+$var wire 1 J G $end
+$var wire 1 K B $end
+$upscope $end
+
+$upscope $end
+
+$enddefinitions $end
+
+#0
+$dumpvars
+1!
+1"
+b0000000z 5
+b0000000z 4
+b0000000z 3
+b000z -
+b0z ,
+b0z +
+b0000000000000000000000000000000z *
+b00z )
+bxx (
+b00000000000000000000000000000000 &
+b000 %
+0;
+x<
+0=
+z>
+z?
+z@
+zA
+zB
+zI
+zJ
+zK
+0.
+x6
+x/
+x0
+x7
+0'
+x1
+x2
+0C
+18
+xD
+xF
+xE
+19
+0:
+xH
+xG
+1#
+1$
+$end
+#5000
+0!
+0#
+08
+#10000
+1!
+1#
+18
+#15000
+0!
+0#
+08
+#20000
+1!
+1#
+18
+#25000
+0!
+0#
+08
+#30000
+1!
+1#
+18
+#31000
+0"
+0$
+09
+#35000
+0!
+0#
+08
+#40000
+1!
+1#
+18
