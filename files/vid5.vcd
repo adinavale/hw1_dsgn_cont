@@ -1,5 +1,5 @@
 $date
-	Sat Sep 24 14:15:56 2022
+	Sat Sep 24 14:44:16 2022
 $end
 
 $version
@@ -62,23 +62,23 @@ $scope module v $end
 $var wire 1 8 clk $end
 $var wire 1 9 reset $end
 $var wire 1 : selin $end
-$var wire 1 ; cmdin $end
-$var wire 1 < lenin $end
-$var wire 1 = addrdatain $end
-$var wire 1 > reqout $end
-$var wire 1 ? lenout $end
-$var wire 1 @ addrdataout $end
-$var wire 1 A cmdout $end
-$var wire 1 B reqtar $end
+$var wire 3 ; cmdin [2:0] $end
+$var wire 2 < lenin [1:0] $end
+$var wire 32 = addrdatain [31:0] $end
+$var wire 2 > reqout [1:0] $end
+$var wire 2 ? lenout [1:0] $end
+$var wire 32 @ addrdataout [31:0] $end
+$var wire 3 A cmdout [2:0] $end
+$var wire 4 B reqtar [3:0] $end
 $var wire 1 C ackin $end
 $var wire 1 D enable $end
 $var wire 1 E hsync $end
 $var wire 1 F hblank $end
 $var wire 1 G vsync $end
 $var wire 1 H vblank $end
-$var wire 1 I R $end
-$var wire 1 J G $end
-$var wire 1 K B $end
+$var wire 8 I R [7:0] $end
+$var wire 8 J G [7:0] $end
+$var wire 8 K B [7:0] $end
 $upscope $end
 
 $upscope $end
@@ -89,28 +89,28 @@ $enddefinitions $end
 $dumpvars
 1!
 1"
-b0000000z 5
-b0000000z 4
-b0000000z 3
-b000z -
-b0z ,
-b0z +
-b0000000000000000000000000000000z *
-b00z )
+bzzzzzzzz 5
+bzzzzzzzz 4
+bzzzzzzzz 3
+bzzzz -
+bzz ,
+bzz +
+bzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz *
+bzzz )
 bxx (
 b00000000000000000000000000000000 &
 b000 %
-0;
-x<
-0=
-z>
-z?
-z@
-zA
-zB
-zI
-zJ
-zK
+b000 ;
+bxx <
+b00000000000000000000000000000000 =
+bzz >
+bzz ?
+bzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz @
+bzzz A
+bzzzz B
+bzzzzzzzz I
+bzzzzzzzz J
+bzzzzzzzz K
 0.
 x6
 x/

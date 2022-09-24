@@ -6,7 +6,7 @@ module vid5a(
 
     input selin,
     input [2:0] cmdin,
-    input [1:0] lenin,
+    input [1:0] lenin, //
     input [31:0] addrdatain,
 
     output [1:0] reqout,
@@ -16,9 +16,9 @@ module vid5a(
     output [3:0] reqtar,
 
     input ackin,
-    input enable,
-    input hsync,
-    input hblank,
+    input enable, //
+    input hsync, //
+    input hblank, //
     input vsync,
     input vblank,
 
@@ -26,4 +26,7 @@ module vid5a(
     output [7:0] G,
     output [7:0] B
     );
+
+    assign addrdatain = 5;
+    assign hsync = 1;
 endmodule

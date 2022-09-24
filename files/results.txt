@@ -1,5 +1,5 @@
                          Chronologic VCS (TM)
-            Version R-2020.12 -- Sat Sep 24 14:15:48 2022
+            Version R-2020.12 -- Sat Sep 24 14:44:09 2022
                Copyright (c) 1991-2020 by Synopsys Inc.
                          ALL RIGHTS RESERVED
 
@@ -329,116 +329,6 @@ Top Level Modules:
        top
 TimeScale is 1 ns / 1 ps
 
-Warning-[PCWM-W] Port connection width mismatch
-top.sv, 56
-"vid5a v( .clk (top.i0.clk),  .reset (top.i0.reset),  .selin (top.i0.selin),  .cmdin (top.i0.cmdin),  .lenin (top.i0.lenin),  .addrdatain (top.i0.addrdatain),  .reqout (top.i0.reqout),  .lenout (top.i0.lenout),  .addrdataout (top.i0.addrdataout),  .cmdout (top.i0.cmdout),  .reqtar (top.i0.reqtar),  .ackin (top.i0.ackin),  .enable (top.i0.enable),  .hsync (top.i0.hsync),  .hblank (top.i0.hblank),  .vsync (top.i0.vsync),  .vblank (top.i0.vblank),  .R (top.i0.R),  .G (top.i0.G),  .B (top.i0.B));"
-  The following 3-bit expression is connected to 1-bit port "cmdin" of module 
-  "vid5a", instance "v".
-  Expression: top.i0.cmdin
-  Instantiated module defined at: "vid5a.sv", 3
-  Use +lint=PCWM for more details.
-
-
-Warning-[PCWM-W] Port connection width mismatch
-top.sv, 56
-"vid5a v( .clk (top.i0.clk),  .reset (top.i0.reset),  .selin (top.i0.selin),  .cmdin (top.i0.cmdin),  .lenin (top.i0.lenin),  .addrdatain (top.i0.addrdatain),  .reqout (top.i0.reqout),  .lenout (top.i0.lenout),  .addrdataout (top.i0.addrdataout),  .cmdout (top.i0.cmdout),  .reqtar (top.i0.reqtar),  .ackin (top.i0.ackin),  .enable (top.i0.enable),  .hsync (top.i0.hsync),  .hblank (top.i0.hblank),  .vsync (top.i0.vsync),  .vblank (top.i0.vblank),  .R (top.i0.R),  .G (top.i0.G),  .B (top.i0.B));"
-  The following 2-bit expression is connected to 1-bit port "lenin" of module 
-  "vid5a", instance "v".
-  Expression: top.i0.lenin
-  Instantiated module defined at: "vid5a.sv", 3
-  Use +lint=PCWM for more details.
-
-
-Warning-[PCWM-W] Port connection width mismatch
-top.sv, 56
-"vid5a v( .clk (top.i0.clk),  .reset (top.i0.reset),  .selin (top.i0.selin),  .cmdin (top.i0.cmdin),  .lenin (top.i0.lenin),  .addrdatain (top.i0.addrdatain),  .reqout (top.i0.reqout),  .lenout (top.i0.lenout),  .addrdataout (top.i0.addrdataout),  .cmdout (top.i0.cmdout),  .reqtar (top.i0.reqtar),  .ackin (top.i0.ackin),  .enable (top.i0.enable),  .hsync (top.i0.hsync),  .hblank (top.i0.hblank),  .vsync (top.i0.vsync),  .vblank (top.i0.vblank),  .R (top.i0.R),  .G (top.i0.G),  .B (top.i0.B));"
-  The following 32-bit expression is connected to 1-bit port "addrdatain" of 
-  module "vid5a", instance "v".
-  Expression: top.i0.addrdatain
-  Instantiated module defined at: "vid5a.sv", 3
-  Use +lint=PCWM for more details.
-
-
-Warning-[PCWM-W] Port connection width mismatch
-top.sv, 56
-"vid5a v( .clk (top.i0.clk),  .reset (top.i0.reset),  .selin (top.i0.selin),  .cmdin (top.i0.cmdin),  .lenin (top.i0.lenin),  .addrdatain (top.i0.addrdatain),  .reqout (top.i0.reqout),  .lenout (top.i0.lenout),  .addrdataout (top.i0.addrdataout),  .cmdout (top.i0.cmdout),  .reqtar (top.i0.reqtar),  .ackin (top.i0.ackin),  .enable (top.i0.enable),  .hsync (top.i0.hsync),  .hblank (top.i0.hblank),  .vsync (top.i0.vsync),  .vblank (top.i0.vblank),  .R (top.i0.R),  .G (top.i0.G),  .B (top.i0.B));"
-  The following 2-bit expression is connected to 1-bit port "reqout" of module
-  "vid5a", instance "v".
-  Expression: top.i0.reqout
-  Instantiated module defined at: "vid5a.sv", 3
-  Use +lint=PCWM for more details.
-
-
-Warning-[PCWM-W] Port connection width mismatch
-top.sv, 56
-"vid5a v( .clk (top.i0.clk),  .reset (top.i0.reset),  .selin (top.i0.selin),  .cmdin (top.i0.cmdin),  .lenin (top.i0.lenin),  .addrdatain (top.i0.addrdatain),  .reqout (top.i0.reqout),  .lenout (top.i0.lenout),  .addrdataout (top.i0.addrdataout),  .cmdout (top.i0.cmdout),  .reqtar (top.i0.reqtar),  .ackin (top.i0.ackin),  .enable (top.i0.enable),  .hsync (top.i0.hsync),  .hblank (top.i0.hblank),  .vsync (top.i0.vsync),  .vblank (top.i0.vblank),  .R (top.i0.R),  .G (top.i0.G),  .B (top.i0.B));"
-  The following 2-bit expression is connected to 1-bit port "lenout" of module
-  "vid5a", instance "v".
-  Expression: top.i0.lenout
-  Instantiated module defined at: "vid5a.sv", 3
-  Use +lint=PCWM for more details.
-
-
-Warning-[PCWM-W] Port connection width mismatch
-top.sv, 56
-"vid5a v( .clk (top.i0.clk),  .reset (top.i0.reset),  .selin (top.i0.selin),  .cmdin (top.i0.cmdin),  .lenin (top.i0.lenin),  .addrdatain (top.i0.addrdatain),  .reqout (top.i0.reqout),  .lenout (top.i0.lenout),  .addrdataout (top.i0.addrdataout),  .cmdout (top.i0.cmdout),  .reqtar (top.i0.reqtar),  .ackin (top.i0.ackin),  .enable (top.i0.enable),  .hsync (top.i0.hsync),  .hblank (top.i0.hblank),  .vsync (top.i0.vsync),  .vblank (top.i0.vblank),  .R (top.i0.R),  .G (top.i0.G),  .B (top.i0.B));"
-  The following 32-bit expression is connected to 1-bit port "addrdataout" of 
-  module "vid5a", instance "v".
-  Expression: top.i0.addrdataout
-  Instantiated module defined at: "vid5a.sv", 3
-  Use +lint=PCWM for more details.
-
-
-Warning-[PCWM-W] Port connection width mismatch
-top.sv, 56
-"vid5a v( .clk (top.i0.clk),  .reset (top.i0.reset),  .selin (top.i0.selin),  .cmdin (top.i0.cmdin),  .lenin (top.i0.lenin),  .addrdatain (top.i0.addrdatain),  .reqout (top.i0.reqout),  .lenout (top.i0.lenout),  .addrdataout (top.i0.addrdataout),  .cmdout (top.i0.cmdout),  .reqtar (top.i0.reqtar),  .ackin (top.i0.ackin),  .enable (top.i0.enable),  .hsync (top.i0.hsync),  .hblank (top.i0.hblank),  .vsync (top.i0.vsync),  .vblank (top.i0.vblank),  .R (top.i0.R),  .G (top.i0.G),  .B (top.i0.B));"
-  The following 3-bit expression is connected to 1-bit port "cmdout" of module
-  "vid5a", instance "v".
-  Expression: top.i0.cmdout
-  Instantiated module defined at: "vid5a.sv", 3
-  Use +lint=PCWM for more details.
-
-
-Warning-[PCWM-W] Port connection width mismatch
-top.sv, 56
-"vid5a v( .clk (top.i0.clk),  .reset (top.i0.reset),  .selin (top.i0.selin),  .cmdin (top.i0.cmdin),  .lenin (top.i0.lenin),  .addrdatain (top.i0.addrdatain),  .reqout (top.i0.reqout),  .lenout (top.i0.lenout),  .addrdataout (top.i0.addrdataout),  .cmdout (top.i0.cmdout),  .reqtar (top.i0.reqtar),  .ackin (top.i0.ackin),  .enable (top.i0.enable),  .hsync (top.i0.hsync),  .hblank (top.i0.hblank),  .vsync (top.i0.vsync),  .vblank (top.i0.vblank),  .R (top.i0.R),  .G (top.i0.G),  .B (top.i0.B));"
-  The following 4-bit expression is connected to 1-bit port "reqtar" of module
-  "vid5a", instance "v".
-  Expression: top.i0.reqtar
-  Instantiated module defined at: "vid5a.sv", 3
-  Use +lint=PCWM for more details.
-
-
-Warning-[PCWM-W] Port connection width mismatch
-top.sv, 56
-"vid5a v( .clk (top.i0.clk),  .reset (top.i0.reset),  .selin (top.i0.selin),  .cmdin (top.i0.cmdin),  .lenin (top.i0.lenin),  .addrdatain (top.i0.addrdatain),  .reqout (top.i0.reqout),  .lenout (top.i0.lenout),  .addrdataout (top.i0.addrdataout),  .cmdout (top.i0.cmdout),  .reqtar (top.i0.reqtar),  .ackin (top.i0.ackin),  .enable (top.i0.enable),  .hsync (top.i0.hsync),  .hblank (top.i0.hblank),  .vsync (top.i0.vsync),  .vblank (top.i0.vblank),  .R (top.i0.R),  .G (top.i0.G),  .B (top.i0.B));"
-  The following 8-bit expression is connected to 1-bit port "R" of module 
-  "vid5a", instance "v".
-  Expression: top.i0.R
-  Instantiated module defined at: "vid5a.sv", 3
-  Use +lint=PCWM for more details.
-
-
-Warning-[PCWM-W] Port connection width mismatch
-top.sv, 56
-"vid5a v( .clk (top.i0.clk),  .reset (top.i0.reset),  .selin (top.i0.selin),  .cmdin (top.i0.cmdin),  .lenin (top.i0.lenin),  .addrdatain (top.i0.addrdatain),  .reqout (top.i0.reqout),  .lenout (top.i0.lenout),  .addrdataout (top.i0.addrdataout),  .cmdout (top.i0.cmdout),  .reqtar (top.i0.reqtar),  .ackin (top.i0.ackin),  .enable (top.i0.enable),  .hsync (top.i0.hsync),  .hblank (top.i0.hblank),  .vsync (top.i0.vsync),  .vblank (top.i0.vblank),  .R (top.i0.R),  .G (top.i0.G),  .B (top.i0.B));"
-  The following 8-bit expression is connected to 1-bit port "G" of module 
-  "vid5a", instance "v".
-  Expression: top.i0.G
-  Instantiated module defined at: "vid5a.sv", 3
-  Use +lint=PCWM for more details.
-
-
-Warning-[PCWM-W] Port connection width mismatch
-top.sv, 56
-"vid5a v( .clk (top.i0.clk),  .reset (top.i0.reset),  .selin (top.i0.selin),  .cmdin (top.i0.cmdin),  .lenin (top.i0.lenin),  .addrdatain (top.i0.addrdatain),  .reqout (top.i0.reqout),  .lenout (top.i0.lenout),  .addrdataout (top.i0.addrdataout),  .cmdout (top.i0.cmdout),  .reqtar (top.i0.reqtar),  .ackin (top.i0.ackin),  .enable (top.i0.enable),  .hsync (top.i0.hsync),  .hblank (top.i0.hblank),  .vsync (top.i0.vsync),  .vblank (top.i0.vblank),  .R (top.i0.R),  .G (top.i0.G),  .B (top.i0.B));"
-  The following 8-bit expression is connected to 1-bit port "B" of module 
-  "vid5a", instance "v".
-  Expression: top.i0.B
-  Instantiated module defined at: "vid5a.sv", 3
-  Use +lint=PCWM for more details.
-
-
 Warning-[INTFDV] VCD dumping of interface/program/package
 top.sv, 53
   Selective VCD dumping of interface 'Vid5I' is not supported.  Selective VCD 
@@ -449,23 +339,20 @@ top.sv, 53
 Starting vcs inline pass...
 
 7 modules and 0 UDP read.
-recompiling package vcs_paramclassrepository
-recompiling package _vcs_DPI_package
-recompiling package uvm_pkg
-recompiling module Vid5I
-recompiling package mejuvm
 recompiling module top
 recompiling module vid5a
-All of 7 modules done
+Both modules done.
+	However, due to incremental compilation, only 2 modules need to be compiled. 
 rm -f _cuarc*.so _csrc*.so pre_vcsobj_*.so share_vcsobj_*.so
-g++ -w  -pipe -m32 -DVCS -O -I/apps/synopsys/VCS_current/vcs/R-2020.12/include    -c /home/morris/uvm-1.2/src/dpi/uvm_dpi.cc
+ld -shared  -z notext -m elf_i386  -Bsymbolic   -o .//../simv.daidir//_cuarc0.so objs/amcQw_d.o 
+rm -f _cuarc0.so
 if [ -x ../simv ]; then chmod a-x ../simv; fi
-g++  -o ../simv      -m32 -m32 -rdynamic  -Wl,-rpath='$ORIGIN'/simv.daidir -Wl,-rpath=./simv.daidir -Wl,-rpath=/apps/synopsys/VCS_current/vcs/R-2020.12/linux/lib -L/apps/synopsys/VCS_current/vcs/R-2020.12/linux/lib  -Wl,-rpath-link=./  uvm_dpi.o   objs/amcQw_d.o   _30453_archive_1.so  SIM_l.o      rmapats_mop.o rmapats.o rmar.o rmar_nd.o  rmar_llvm_0_1.o rmar_llvm_0_0.o           -lvirsim -lerrorinf -lsnpsmalloc -lvfs    -lvcsnew -lsimprofile -luclinative /apps/synopsys/VCS_current/vcs/R-2020.12/linux/lib/vcs_tls.o   -Wl,-whole-archive  -lvcsucli    -Wl,-no-whole-archive       ./../simv.daidir/vc_hdrs.o    /apps/synopsys/VCS_current/vcs/R-2020.12/linux/lib/vcs_save_restore_new.o /apps/synopsys/VCS_current/vcs/R-2020.12/linux/lib/ctype-stubs_32.a -ldl  -lc -lm -lpthread -ldl 
+g++  -o ../simv      -m32 -m32 -rdynamic  -Wl,-rpath='$ORIGIN'/simv.daidir -Wl,-rpath=./simv.daidir -Wl,-rpath=/apps/synopsys/VCS_current/vcs/R-2020.12/linux/lib -L/apps/synopsys/VCS_current/vcs/R-2020.12/linux/lib  -Wl,-rpath-link=./  uvm_dpi.o     _1154_archive_1.so _prev_archive_1.so _cuarc0.so  SIM_l.o      rmapats_mop.o rmapats.o rmar.o rmar_nd.o  rmar_llvm_0_1.o rmar_llvm_0_0.o           -lvirsim -lerrorinf -lsnpsmalloc -lvfs    -lvcsnew -lsimprofile -luclinative /apps/synopsys/VCS_current/vcs/R-2020.12/linux/lib/vcs_tls.o   -Wl,-whole-archive  -lvcsucli    -Wl,-no-whole-archive       ./../simv.daidir/vc_hdrs.o    /apps/synopsys/VCS_current/vcs/R-2020.12/linux/lib/vcs_save_restore_new.o /apps/synopsys/VCS_current/vcs/R-2020.12/linux/lib/ctype-stubs_32.a -ldl  -lc -lm -lpthread -ldl 
 ../simv up to date
-CPU time: 5.029 seconds to compile + .259 seconds to elab + .320 seconds to link
+CPU time: 3.874 seconds to compile + .262 seconds to elab + .236 seconds to link
 Chronologic VCS simulator copyright 1991-2020
 Contains Synopsys proprietary information.
-Compiler version R-2020.12; Runtime version R-2020.12;  Sep 24 14:15 2022
+Compiler version R-2020.12; Runtime version R-2020.12;  Sep 24 14:44 2022
 UVM_INFO /home/morris/uvm-1.2/src/base/uvm_root.svh(392) @ 0: reporter [UVM/RELNOTES] 
 ----------------------------------------------------------------
 UVM-1.2
@@ -586,4 +473,4 @@ $finish at simulation time                40000
            V C S   S i m u l a t i o n   R e p o r t 
 Time: 40000 ps
 CPU Time:      0.380 seconds;       Data structure size:   0.2Mb
-Sat Sep 24 14:15:56 2022
+Sat Sep 24 14:44:16 2022
