@@ -1,0 +1,169 @@
+$date
+	Sat Sep 24 14:44:16 2022
+$end
+
+$version
+	Synopsys VCS version R-2020.12
+$end
+
+$timescale
+	1ps
+$end
+
+$comment Csum: 1 6e6d5d7dfdcf2de8 $end
+
+
+$scope module top $end
+$var reg 1 ! clk $end
+$var reg 1 " reset $end
+
+$scope begin unnamed$$_vcs_3 $end
+$upscope $end
+
+
+$scope begin unnamed$$_vcs_0 $end
+$upscope $end
+
+
+$scope begin unnamed$$_vcs_1 $end
+$upscope $end
+
+
+$scope begin unnamed$$_vcs_2 $end
+$upscope $end
+
+
+$scope module i0 $end
+$var reg 1 # clk $end
+$var reg 1 $ reset $end
+$var reg 3 % cmdin [2:0] $end
+$var reg 32 & addrdatain [31:0] $end
+$var reg 1 ' selin $end
+$var reg 2 ( lenin [1:0] $end
+$var reg 3 ) cmdout [2:0] $end
+$var reg 32 * addrdataout [31:0] $end
+$var reg 2 + lenout [1:0] $end
+$var reg 2 , reqout [1:0] $end
+$var reg 4 - reqtar [3:0] $end
+$var reg 1 . ackin $end
+$var reg 1 / hblank $end
+$var reg 1 0 hsync $end
+$var reg 1 1 vblank $end
+$var reg 1 2 vsync $end
+$var reg 8 3 R [7:0] $end
+$var reg 8 4 G [7:0] $end
+$var reg 8 5 B [7:0] $end
+$var reg 1 6 enable $end
+$var reg 1 7 interrupt $end
+$upscope $end
+
+
+$scope module v $end
+$var wire 1 8 clk $end
+$var wire 1 9 reset $end
+$var wire 1 : selin $end
+$var wire 3 ; cmdin [2:0] $end
+$var wire 2 < lenin [1:0] $end
+$var wire 32 = addrdatain [31:0] $end
+$var wire 2 > reqout [1:0] $end
+$var wire 2 ? lenout [1:0] $end
+$var wire 32 @ addrdataout [31:0] $end
+$var wire 3 A cmdout [2:0] $end
+$var wire 4 B reqtar [3:0] $end
+$var wire 1 C ackin $end
+$var wire 1 D enable $end
+$var wire 1 E hsync $end
+$var wire 1 F hblank $end
+$var wire 1 G vsync $end
+$var wire 1 H vblank $end
+$var wire 8 I R [7:0] $end
+$var wire 8 J G [7:0] $end
+$var wire 8 K B [7:0] $end
+$upscope $end
+
+$upscope $end
+
+$enddefinitions $end
+
+#0
+$dumpvars
+1!
+1"
+bzzzzzzzz 5
+bzzzzzzzz 4
+bzzzzzzzz 3
+bzzzz -
+bzz ,
+bzz +
+bzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz *
+bzzz )
+bxx (
+b00000000000000000000000000000000 &
+b000 %
+b000 ;
+bxx <
+b00000000000000000000000000000000 =
+bzz >
+bzz ?
+bzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz @
+bzzz A
+bzzzz B
+bzzzzzzzz I
+bzzzzzzzz J
+bzzzzzzzz K
+0.
+x6
+x/
+x0
+x7
+0'
+x1
+x2
+0C
+18
+xD
+xF
+xE
+19
+0:
+xH
+xG
+1#
+1$
+$end
+#5000
+0!
+0#
+08
+#10000
+1!
+1#
+18
+#15000
+0!
+0#
+08
+#20000
+1!
+1#
+18
+#25000
+0!
+0#
+08
+#30000
+1!
+1#
+18
+#31000
+0"
+0$
+09
+#35000
+0!
+0#
+08
+#40000
+1!
+1#
+18

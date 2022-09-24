@@ -53,15 +53,30 @@ module top();
 		$dumpvars(0,top);
 	end
 	
-	vid5a v(.clk(i0.clk),.reset(i0.reset),
-		.selin(i0.selin),.cmdin(i0.cmdin),
-		.lenin(i0.lenin),.addrdatain(i0.addrdatain),
-		.reqout(i0.reqout),.lenout(i0.lenout),.addrdataout(i0.addrdataout),
-		.cmdout(i0.cmdout),.reqtar(i0.reqtar),.ackin(i0.ackin),
+	vid5a v(
+		.clk(i0.clk),
+		.reset(i0.reset),
+
+		.selin(i0.selin),
+		.cmdin(i0.cmdin),
+		.lenin(i0.lenin),
+		.addrdatain(i0.addrdatain),
+		
+		.reqout(i0.reqout),
+		.lenout(i0.lenout),
+		.addrdataout(i0.addrdataout),
+		.cmdout(i0.cmdout),
+		.reqtar(i0.reqtar),
+		.ackin(i0.ackin),
 		.enable(i0.enable),
-		.hsync(i0.hsync),.hblank(i0.hblank),
-		.vsync(i0.vsync),.vblank(i0.vblank),
-		.R(i0.R),.G(i0.G),.B(i0.B) );
+		.hsync(i0.hsync),
+		.hblank(i0.hblank),
+		.vsync(i0.vsync),
+		.vblank(i0.vblank),
+		.R(i0.R),
+		.G(i0.G),
+		.B(i0.B)
+		);
 
 endmodule : top
 
