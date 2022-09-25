@@ -49,10 +49,17 @@ module vid5a(
     end
   end
 
+    logic [1:0] count = 0;
+    logic [1:0] count_d = 0;
+
   always_ff @ (posedge clk) begin
     if (ackin) begin
         cmdout = 3'b101; //Requests write response from tb
-        #10 cmdout = 3'b010; //Read request to tb
+        count_d = count + 1;
+        count = count_d;
+    end
+    if (count_d == 1) begin
+        cmdout = 3'b010; //Read request to tb
     end
   end
 endmodule
