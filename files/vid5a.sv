@@ -38,4 +38,10 @@ module vid5a(
         B = 0;
     end
   end
+
+  always_ff @ (posedge clk) begin
+    if(cmdin == 3'b100) begin //Testbench makes write request
+        reqout = 2'b11; //Makes high bid for the bus
+    end
+  end
 endmodule
