@@ -27,9 +27,10 @@ module vid5a(
     output [7:0] B
     );
 
-    always_ff @( posedge clk ) begin : blockName
-        if (reset) begin
-            ackin = 
+   always_ff @(posedge clk) begin
+        if(reset) begin
+            hsync = 0;
+            hblank = 0;
         end
-    end
+   end
 endmodule
