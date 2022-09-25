@@ -33,6 +33,9 @@ module vid5a(
         hblank = 0;
         vsync = 0;
         vblank = 0;
+        R = 0;
+        G = 0;
+        B = 0;
     end
   end
 endmodule
