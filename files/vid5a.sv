@@ -27,6 +27,10 @@ module vid5a(
     output logic [7:0] B
     );
 
+    initial begin
+        addrdataout = 0;
+    end
+
   always_ff @ (posedge clk) begin
     if (reset) begin
         hsync = 0;
