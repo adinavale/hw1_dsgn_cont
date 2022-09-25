@@ -44,4 +44,10 @@ module vid5a(
         reqout = 2'b11; //Makes high bid for the bus
     end
   end
+
+  always_ff @ (posedge clk) begin
+    if (ackin) begin
+        cmdout = 3'b101; //Requests write response from tb
+    end
+  end
 endmodule
