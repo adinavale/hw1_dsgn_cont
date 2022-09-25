@@ -14,9 +14,9 @@ module vid5a(
     output [31:0] addrdataout,
     output [2:0] cmdout,
     output [3:0] reqtar,
-    output ackin,
-
-    output enable, //
+    input ackin,
+    input enable, //
+    
     output hsync, //
     output hblank, //
     output vsync,
