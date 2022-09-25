@@ -37,7 +37,6 @@ module vid5a(
         G = 0;
         B = 0;
         addrdataout = 0;
-
     end
   end
 
