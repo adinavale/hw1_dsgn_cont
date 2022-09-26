@@ -111,6 +111,7 @@ module vid5a(
   always_ff @ (posedge clk) begin
     if (ackin && en) begin
         cmdout = 3'b010; //Makes read request from tb
+        addrdataout = base_address;
     end
     else if (ackin) begin
         cmdout = 3'b101; //Requests write response from tb
