@@ -166,7 +166,7 @@ module vid5a(
     end
     else if (ackin && en) begin
         cmdout = 3'b010; //Makes read request from tb
-        addrdataout = base_address;
+        addrdataout = base_address + lineinc;
         lenout = 2'b01; //Makes 4 transfers for a request
         reqtar = 4'b0000; //Targets memory system
         
