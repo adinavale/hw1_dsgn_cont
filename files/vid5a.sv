@@ -106,7 +106,7 @@ module fifo (
     output fifo_full, fifo_empty, fifo_threshold, fifo_overflow, fifo_underflow
 );
 
-    logic write_ptr, read_ptr;
+    logic [4:0] write_ptr, read_ptr;
     logic fifo_we, fifo_re;
 
     write_pointer write_inst (
