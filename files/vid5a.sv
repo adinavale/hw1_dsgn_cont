@@ -53,9 +53,10 @@ module vid5a(
     );
 
     initial begin
-      #20 write = 1;
-      read = 0;
+      #40 write = 1;
       data_in = 5;
+      read = 0;
+      #9 read = 1;
     end
 
   always_ff @ (posedge clk) begin
