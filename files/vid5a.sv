@@ -52,6 +52,59 @@ module vid5a(
   logic [31:0] base_address;    //Address 48
   logic [31:0] lineinc;         //Address 50
 
+    //FIFO Registers
+    logic [7:0] data_in_red;
+    logic [7:0] data_out_red;
+    logic [7:0] data_in_green;
+    logic [7:0] data_out_green;
+    logic [7:0] data_in_blue;
+    logic [7:0] data_out_blue;
+    logic write_to_fifo = 0;
+    logic read_from_fifo = 0;
+
+  //FIFO Instantiations
+  fifo red_fifo (
+    .clk            (clk),
+    .reset_n        (~reset),
+    .write          (write_to_fifo),
+    .read           (read_from_fifo),
+    .data_in        (data_in_red),
+    .data_out       (data_out_red),
+    .fifo_full      (),
+    .fifo_empty     (),
+    .fifo_threshold (),
+    .fifo_overflow  (),
+    .fifo_underflow ()
+    );
+
+    fifo green_fifo (
+    .clk            (clk),
+    .reset_n        (~reset),
+    .write          (write_to_fifo),
+    .read           (read_from_fifo),
+    .data_in        (data_in_green),
+    .data_out       (data_out_green),
+    .fifo_full      (),
+    .fifo_empty     (),
+    .fifo_threshold (),
+    .fifo_overflow  (),
+    .fifo_underflow ()
+    );
+
+    fifo blue_fifo (
+    .clk            (clk),
+    .reset_n        (~reset),
+    .write          (write_to_fifo),
+    .read           (read_from_fifo),
+    .data_in        (data_in_blue),
+    .data_out       (data_out_blue),
+    .fifo_full      (),
+    .fifo_empty     (),
+    .fifo_threshold (),
+    .fifo_overflow  (),
+    .fifo_underflow ()
+    );
+
   always_ff @ (posedge clk) begin
     if (reset) begin
         hsync = 0;
@@ -116,6 +169,12 @@ module vid5a(
         addrdataout = base_address;
         lenout = 2'b01; //Makes 4 transfers for a request
         reqtar = 4'b0000; //Targets memory system
+        
+        //Writes addrdatain to FIFO
+        write_to_fifo = 1;
+        data_in_blue = addrdatain[7:0];
+        data_in_green = addrdatain[8:15];
+        data_in_red = addrdatain[23:16];
     end
     else if (ackin) begin
         cmdout = 3'b101; //Requests write response from tb
@@ -123,7 +182,7 @@ module vid5a(
   end
 endmodule
 
-/*//FIFO registers
+//FIFO registers
   logic read;
   logic write;
   logic [7:0] data_in;
@@ -148,7 +207,7 @@ endmodule
     .fifo_underflow (fifo_underflow)
     );
 
-    initial begin
+    /*initial begin
       #40 write = 1;
       data_in = 1;
       read = 0;
