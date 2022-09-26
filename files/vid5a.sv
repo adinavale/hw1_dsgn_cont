@@ -109,7 +109,10 @@ module vid5a(
   end
 
   always_ff @ (posedge clk) begin
-    if (ackin) begin
+    if (ackin && en) begin
+        cmdout = 3'b010; //Makes read request from tb
+    end
+    else if (ackin) begin
         cmdout = 3'b101; //Requests write response from tb
     end
   end
