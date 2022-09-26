@@ -61,7 +61,6 @@ module vid5a(
         R = 0;
         G = 0;
         B = 0;
-        addrdataout = 0;
     end
   end
 
@@ -109,7 +108,10 @@ module vid5a(
   end
 
   always_ff @ (posedge clk) begin
-    if (ackin && en) begin
+    if (reset) begin
+        addrdataout = 0;
+    end
+    else if (ackin && en) begin
         cmdout = 3'b010; //Makes read request from tb
         addrdataout = base_address;
     end
