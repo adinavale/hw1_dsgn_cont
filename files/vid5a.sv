@@ -182,7 +182,7 @@ module vid5a(
   end
 endmodule
 
-//FIFO registers
+/*//FIFO registers
   logic read;
   logic write;
   logic [7:0] data_in;
@@ -205,7 +205,7 @@ endmodule
     .fifo_threshold (fifo_threshold),
     .fifo_overflow  (fifo_overflow),
     .fifo_underflow (fifo_underflow)
-    );
+    ); */
 
     /*initial begin
       #40 write = 1;
