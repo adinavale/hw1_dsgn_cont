@@ -73,19 +73,28 @@ module vid5a(
       #9 data_in = 44;
       #9 write = 0;
       #9 read = 1;
-      #200 reset_n = 0;
-      #9 reset_n = 1;
-      read = 0;
-      write = 1;
-      #9 data_in = 142;
-      #9 data_in = 113;
-      #9 data_in = 54;
-      #9 data_in = 21;
-      #9 data_in = 29;
-      #9 write = 0;
-      read = 1;
       
-    end
+      #200 write = 1;
+      read = 0;
+      #9 data_in = 5;
+      #9 data_in = 6;
+      #9 data_in = 7;
+      #9 data_in = 8;
+      #9 data_in = 9;
+      #9 data_in = 10;
+      #9 data_in = 11;
+      #9 data_in = 12;
+      #9 data_in = 13;
+      #9 data_in = 14;
+      #9 data_in = 15;
+      #9 data_in = 16;
+      #9 data_in = 17;
+      #9 data_in = 18;
+      #9 data_in = 19;
+      #9 write = 0;
+      #9 read = 1;
+      
+    end 
 
   always_ff @ (posedge clk) begin
     if (reset) begin
