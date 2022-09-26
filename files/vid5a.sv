@@ -117,7 +117,7 @@ module fifo (
 
     read_pointer read_inst (
         .read_ptr       (read_ptr),
-        .fifo_rd        (fifo_rd),
+        .fifo_re        (fifo_re),
         .read           (read),
         .fifo_empty     (fifo_empty),
         .clk            (clk),
@@ -142,7 +142,7 @@ module fifo (
         .write          (write),
         .read           (read),
         .fifo_we        (fifo_we),
-        .fifo_rd        (fifo_rd),
+        .fifo_re        (fifo_re),
         .write_ptr      (write_ptr),
         .read_ptr       (read_ptr),
         .clk            (clk),
@@ -211,7 +211,7 @@ module write_pointer (
         if (~reset_n) begin
             write_ptr <= 0;
         end else if (fifo_we) begin
-            write_ptr = write_ptr + 1
+            write_ptr = write_ptr + 1;
         end else begin
             write_ptr <= write_ptr;
         end
@@ -249,9 +249,9 @@ module status_signals (
     always_ff @ (posedge clk or negedge reset_n) begin
         if (~reset_n) begin
             fifo_overflow <= 0;
-        end else if ( (overflow_set == 1) && (fifo_rd == 0) ) begin
+        end else if ( (overflow_set == 1) && (fifo_re == 0) ) begin
             fifo_overflow <= 1;
-        end else if (fifo_rd) begin
+        end else if (fifo_re) begin
             fifo_overflow <= 0;
         end else begin
             fifo_overflow <= fifo_overflow;
