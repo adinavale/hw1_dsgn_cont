@@ -173,7 +173,7 @@ module vid5a(
         //Writes addrdatain to FIFO
         write_to_fifo = 1;
         data_in_blue = addrdatain[7:0];
-        data_in_green = addrdatain[8:15];
+        data_in_green = addrdatain[15:8];
         data_in_red = addrdatain[23:16];
     end
     else if (ackin) begin
