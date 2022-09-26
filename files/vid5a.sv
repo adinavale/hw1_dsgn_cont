@@ -54,28 +54,11 @@ module vid5a(
 
     initial begin
       #40 write = 1;
-      data_in = 5;
+      data_in = 1;
       read = 0;
       #9 data_in = 2;
-      #9 data_in = 201;
-      #9 data_in = 154;
-      #9 data_in = 111;
-      #9 data_in = 123;
-      #9 data_in = 99;
-      #9 data_in = 12;
-      #9 data_in = 200;
-      #9 data_in = 142;
-      #9 data_in = 113;
-      #9 data_in = 54;
-      #9 data_in = 21;
-      #9 data_in = 29;
-      #9 data_in = 33;
-      #9 data_in = 44;
-      #9 write = 0;
-      #9 read = 1;
-      
-      #200 write = 1;
-      read = 0;
+      #9 data_in = 3;
+      #9 data_in = 4;
       #9 data_in = 5;
       #9 data_in = 6;
       #9 data_in = 7;
@@ -87,10 +70,27 @@ module vid5a(
       #9 data_in = 13;
       #9 data_in = 14;
       #9 data_in = 15;
-      #9 data_in = 16;
-      #9 data_in = 17;
-      #9 data_in = 18;
-      #9 data_in = 19;
+      #9 data_in = 100;
+      #9 write = 0;
+      #9 read = 1;
+      
+      #200 write = 1;
+      read = 0;
+      #9 data_in = 20;
+      #9 data_in = 21;
+      #9 data_in = 22;
+      #9 data_in = 23;
+      #9 data_in = 24;
+      #9 data_in = 25;
+      #9 data_in = 26;
+      #9 data_in = 27;
+      #9 data_in = 28;
+      #9 data_in = 29;
+      #9 data_in = 30;
+      #9 data_in = 31;
+      #9 data_in = 32;
+      #9 data_in = 33;
+      #9 data_in = 200;
       #9 write = 0;
       #9 read = 1;
       
