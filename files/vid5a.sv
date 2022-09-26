@@ -170,8 +170,8 @@ module vid5a(
         lenout = 2'b01; //Makes 4 transfers for a request
         reqtar = 4'b0000; //Targets memory system
         
-        if (cmdin == 3'b000) begin
-            cmdout = 0;
+        /*if (cmdin == 3'b000) begin
+            cmdout = 0; */
         end
 
         /*//Writes addrdatain to FIFO
