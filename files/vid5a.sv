@@ -27,7 +27,50 @@ module vid5a(
     output logic [7:0] B
     );
 
-  /*//FIFO registers
+  //Registers
+  logic [31:0] cr;              //Address 0
+  logic [31:0] h1;              //Address 28
+  logic [31:0] h2;              //Address 30
+  logic [31:0] v1;              //Address 38
+  logic [31:0] v2;              //Address 40
+  logic [31:0] base_address;    //Address 48
+  logic [31:0] lineinc;         //Address 50
+
+  always_ff @ (posedge clk) begin
+    if (reset) begin
+        hsync = 0;
+        hblank = 0;
+        vsync = 0;
+        vblank = 0;
+        R = 0;
+        G = 0;
+        B = 0;
+        addrdataout = 0;
+    end
+  end
+
+  logic [31:0] reg_address;
+
+  always_ff @ (posedge clk) begin
+    if (cmdin == 3'b100) begin //Testbench makes write request
+        reqout = 2'b11; //Makes high bid for the bus
+        reg_address = addrdatain;
+    end
+    if (cmdin == 3'b001) begin
+        if (reg_address == 0) begin
+          cr = addrdatain;
+        end
+    end  
+  end
+
+  always_ff @ (posedge clk) begin
+    if (ackin) begin
+        cmdout = 3'b101; //Requests write response from tb
+    end
+  end
+endmodule
+
+/*//FIFO registers
   logic read;
   logic write;
   logic [7:0] data_in;
@@ -94,32 +137,6 @@ module vid5a(
       #9 write = 0;
       #9 read = 1;
     end */
-
-  always_ff @ (posedge clk) begin
-    if (reset) begin
-        hsync = 0;
-        hblank = 0;
-        vsync = 0;
-        vblank = 0;
-        R = 0;
-        G = 0;
-        B = 0;
-        addrdataout = 0;
-    end
-  end
-
-  always_ff @ (posedge clk) begin
-    if(cmdin == 3'b100) begin //Testbench makes write request
-        //reqout = 2'b11; //Makes high bid for the bus
-    end
-  end
-
-  always_ff @ (posedge clk) begin
-    if (ackin) begin
-        cmdout = 3'b101; //Requests write response from tb
-    end
-  end
-endmodule
 
 module fifo (
     input clk,
