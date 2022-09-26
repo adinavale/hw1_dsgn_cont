@@ -57,25 +57,25 @@ module vid5a(
         reg_address = addrdatain;
     end
     if (cmdin == 3'b001) begin
-        if (reg_address == 0) begin
+        if (reg_address == 32'h00000000) begin
             cr = addrdatain;
         end
-        else if (reg_address == 28) begin
+        else if (reg_address == 32'h00000028) begin
             h1 = addrdatain;
         end
-        else if (reg_address == 30) begin
+        else if (reg_address == 32'h00000030) begin
             h2 = addrdatain;
         end
-        else if (reg_address == 38) begin
+        else if (reg_address == 32'h00000038) begin
             v1 = addrdatain;
         end
-        else if (reg_address == 40) begin
+        else if (reg_address == 32'h00000040) begin
             v2 = addrdatain;
         end
-        else if (reg_address == 48) begin
+        else if (reg_address == 32'h00000048) begin
             base_address = addrdatain;
         end
-        else if (reg_address == 50) begin
+        else if (reg_address == 32'h00000050) begin
             lineinc = addrdatain;
         end
     end  
