@@ -73,7 +73,9 @@ module vid5a(
       #9 data_in = 44;
       #9 write = 0;
       #9 read = 1;
-      #200 read = 0;
+      #200 reset_n = 0;
+      #9 reset_n = 1;
+      read = 0;
       write = 1;
       #9 data_in = 142;
       #9 data_in = 113;
