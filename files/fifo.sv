@@ -3,11 +3,10 @@ module fifo (
     input reset_n,
     input write,
     input read,
-
     input [7:0] data_in,
-    output [7:0] data_out,
 
-    output fifo_full, fifo_empty, fifo_threshold, fifo_overflow, fifo_underflow,
+    output [7:0] data_out,
+    output fifo_full, fifo_empty, fifo_threshold, fifo_overflow, fifo_underflow
 );
 
     logic write_ptr, read_ptr;

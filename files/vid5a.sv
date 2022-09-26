@@ -27,6 +27,37 @@ module vid5a(
     output logic [7:0] B
     );
 
+  //FIFO registers
+  logic read;
+  logic write;
+  logic [7:0] data_in;
+  logic [7:0] data_out;
+  logic fifo_full, fifo_empty, fifo_threshold, fifo_overflow, fifo_underflow;
+
+  //FIFO instantiation
+  fifo red_fifo (
+    //Inputs
+    .clk            (clk),
+    .reset_n        (~reset),
+    .write          (write),
+    .read           (read),
+    .data_in        (data_in),
+
+    //Outputs
+    .data_out       (data_out),
+    .fifo_full      (fifo_full),
+    .fifo_empty     (fifo_empty),
+    .fifo_threshold (fifo_threshold),
+    .fifo_overflow  (fifo_overflow),
+    .fifo_underflow (fifo_underflow)
+    );
+
+    initial begin
+      #20 write = 1;
+      read = 0;
+      data_in = 5;
+    end
+
   always_ff @ (posedge clk) begin
     if (reset) begin
         hsync = 0;
