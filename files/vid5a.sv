@@ -171,8 +171,8 @@ module vid5a(
         reqtar = 4'b0000; //Targets memory system
         
         /*if (cmdin == 3'b000) begin
-            cmdout = 0; */
-        end
+            cmdout = 0; 
+        end */
 
         /*//Writes addrdatain to FIFO
         if ( (cmdin == 3'b001)  && (selin == 1) ) begin
