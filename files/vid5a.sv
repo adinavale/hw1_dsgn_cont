@@ -27,7 +27,7 @@ module vid5a(
     output logic [7:0] B
     );
 
-  //FIFO registers
+  /*//FIFO registers
   logic read;
   logic write;
   logic [7:0] data_in;
@@ -93,8 +93,7 @@ module vid5a(
       #9 data_in = 200;
       #9 write = 0;
       #9 read = 1;
-      
-    end 
+    end */
 
   always_ff @ (posedge clk) begin
     if (reset) begin
@@ -111,21 +110,13 @@ module vid5a(
 
   always_ff @ (posedge clk) begin
     if(cmdin == 3'b100) begin //Testbench makes write request
-        reqout = 2'b11; //Makes high bid for the bus
+        //reqout = 2'b11; //Makes high bid for the bus
     end
   end
-
-    logic [1:0] count = 0;
-    logic [1:0] count_d = 0;
 
   always_ff @ (posedge clk) begin
     if (ackin) begin
         cmdout = 3'b101; //Requests write response from tb
-        count_d = count + 1;
-        count = count_d;
-    end
-    if (count_d == 1) begin
-        cmdout = 3'b010; //Read request to tb
     end
   end
 endmodule
