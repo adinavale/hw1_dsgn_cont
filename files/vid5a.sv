@@ -29,10 +29,26 @@ module vid5a(
 
   //Registers
   logic [31:0] cr;              //Address 0
+    logic en;                   //Enable the controller cr[3]
+    logic pcnt;                 //Pixel divider cr[9:4]
+    logic vclk;                 //Vertical timing clock source cr[15:14]
+
   logic [31:0] h1;              //Address 28
+    logic [12:0] hend;          //Hend h1[12:0] - Total number of pixels per horizontal line
+    logic [12:0] hsize;         //Hsize h1[25:13] - Number of displayed pixels per horizontal line
+
   logic [31:0] h2;              //Address 30
+    logic [12:0] horiz_sync_start; //h2 [25:13] - pixel position of horizontal sync start
+    logic [12:0] horiz_sync_end;   //h2 [12:0] - pixel position of horizontal sync end
+
   logic [31:0] v1;              //Address 38
+    logic [12:0] vend;          //Vend v1[12:0] - Total number of lines per frame
+    logic [12:0] vsize;         //Vsize v1[25:13] - Number of displayed lines per frame
+
   logic [31:0] v2;              //Address 40
+    logic [12:0] vert_sync_start; //v2[25:13] - line position of vertical sync start
+    logic [12:0] vert_sync_end;   //v2[12:0] - line position of vertical sync end
+    
   logic [31:0] base_address;    //Address 48
   logic [31:0] lineinc;         //Address 50
 
@@ -59,18 +75,29 @@ module vid5a(
     if (cmdin == 3'b001) begin
         if (reg_address == 32'h00000000) begin
             cr = addrdatain;
+                en = cr[3]; //Controller enable
+                pcnt = cr[9:4]; //Pixel divider
+                vclk = cr[15:14]; //Vertical timing clock source
         end
         else if (reg_address == 32'h00000028) begin
             h1 = addrdatain;
+                hend = h1[12:0]; 
+                hsize = h1[25:13];
         end
         else if (reg_address == 32'h00000030) begin
             h2 = addrdatain;
+                horiz_sync_start = h2[25:13];
+                horiz_sync_end = h2[12:0];
         end
         else if (reg_address == 32'h00000038) begin
             v1 = addrdatain;
+                vend = v1[12:0]; 
+                vsize = v1[25:13];
         end
         else if (reg_address == 32'h00000040) begin
             v2 = addrdatain;
+                vert_sync_start = v2[25:13];
+                vert_sync_end = v2[12:0];
         end
         else if (reg_address == 32'h00000048) begin
             base_address = addrdatain;
