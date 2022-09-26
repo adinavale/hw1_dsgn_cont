@@ -171,10 +171,12 @@ module vid5a(
         reqtar = 4'b0000; //Targets memory system
         
         //Writes addrdatain to FIFO
-        write_to_fifo = 1;
-        data_in_blue = addrdatain[7:0];
-        data_in_green = addrdatain[15:8];
-        data_in_red = addrdatain[23:16];
+        if (cmdin == 3'001) begin
+            write_to_fifo = 1;
+            data_in_blue = addrdatain[7:0];
+            data_in_green = addrdatain[15:8];
+            data_in_red = addrdatain[23:16];
+        end
     end
     else if (ackin) begin
         cmdout = 3'b101; //Requests write response from tb
