@@ -73,6 +73,16 @@ module vid5a(
       #9 data_in = 44;
       #9 write = 0;
       #9 read = 1;
+      #200 read = 0;
+      write = 1;
+      #9 data_in = 142;
+      #9 data_in = 113;
+      #9 data_in = 54;
+      #9 data_in = 21;
+      #9 data_in = 29;
+      #9 write = 0;
+      read = 1;
+      
     end
 
   always_ff @ (posedge clk) begin
