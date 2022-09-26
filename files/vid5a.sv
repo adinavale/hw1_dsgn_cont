@@ -177,7 +177,7 @@ module read_pointer (
     input read,
     input fifo_empty,
     
-    output logic [4:0] read_pointer,
+    output logic [4:0] read_ptr,
     output fifo_re
 );
 
@@ -185,11 +185,11 @@ module read_pointer (
 
     always_ff @ (posedge clk or negedge reset_n) begin
         if (~reset_n) begin
-            read_pointer <= 0;
+            read_ptr <= 0;
         end else if (fifo_re) begin
-            read_pointer <= read_pointer + 1;
+            read_ptr <= read_ptr + 1;
         end else begin
-            read_pointer <= read_pointer;
+            read_ptr <= read_ptr;
         end
     end
 endmodule
