@@ -30,8 +30,8 @@ module vid5a(
   //Registers
   logic [31:0] cr;              //Address 0
     logic en;                   //Enable the controller cr[3]
-    logic pcnt;                 //Pixel divider cr[9:4]
-    logic vclk;                 //Vertical timing clock source cr[15:14]
+    logic [5:0] pcnt;                 //Pixel divider cr[9:4]
+    logic [1:0] vclk;                 //Vertical timing clock source cr[15:14]
 
   logic [31:0] h1;              //Address 28
     logic [12:0] hend;          //Hend h1[12:0] - Total number of pixels per horizontal line
@@ -48,7 +48,7 @@ module vid5a(
   logic [31:0] v2;              //Address 40
     logic [12:0] vert_sync_start; //v2[25:13] - line position of vertical sync start
     logic [12:0] vert_sync_end;   //v2[12:0] - line position of vertical sync end
-    
+
   logic [31:0] base_address;    //Address 48
   logic [31:0] lineinc;         //Address 50
 
