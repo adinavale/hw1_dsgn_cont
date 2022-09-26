@@ -57,6 +57,20 @@ module vid5a(
       data_in = 5;
       read = 0;
       #9 data_in = 2;
+      #9 data_in = 201;
+      #9 data_in = 154;
+      #9 data_in = 111;
+      #9 data_in = 123;
+      #9 data_in = 99;
+      #9 data_in = 12;
+      #9 data_in = 200;
+      #9 data_in = 142;
+      #9 data_in = 113;
+      #9 data_in = 54;
+      #9 data_in = 21;
+      #9 data_in = 29;
+      #9 data_in = 33;
+      #9 data_in = 44;
       #9 write = 0;
       #9 read = 1;
     end
