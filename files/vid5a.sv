@@ -164,7 +164,7 @@ module vid5a(
     if (reset) begin
         addrdataout = 0;
     end
-    else if (ackin && en) begin
+    else if (ackin && en && (cmdin == 3'b000) ) begin
         cmdout = 3'b010; //Makes read request from tb
         addrdataout = base_address + lineinc;
         lenout = 2'b01; //Makes 4 transfers for a request
