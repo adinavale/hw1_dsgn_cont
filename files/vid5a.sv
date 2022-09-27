@@ -111,9 +111,6 @@ module vid5a(
         hblank = 0;
         vsync = 0;
         vblank = 0;
-        R = 0;
-        G = 0;
-        B = 0;
     end
   end
 
@@ -175,9 +172,13 @@ module vid5a(
         //Writes addrdatain to FIFO
         if ( (cmdin == 3'b001)  && (selin == 1) ) begin
             write_to_fifo = 1;
+            read_from_fifo = 1;
             data_in_blue = addrdatain[7:0];
             data_in_green = addrdatain[15:8];
             data_in_red = addrdatain[23:16];
+            B = data_out_blue;
+            G = data_in_green;
+            R = data_out_red;
         end 
     end
     else if (ackin) begin
