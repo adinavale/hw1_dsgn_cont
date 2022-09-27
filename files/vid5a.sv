@@ -160,27 +160,25 @@ module vid5a(
     end  
   end
 
+    integer h_count;
+
   always_ff @ (posedge clk) begin
     if (reset) begin
         addrdataout = 0;
     end
     else if (ackin && en && (cmdin == 3'b000) ) begin
         cmdout = 3'b010; //Makes read request from tb
-        addrdataout = base_address + lineinc*2;
+        addrdataout = base_address + lineinc;
         lenout = 2'b10; //Makes 4 transfers for a request
         reqtar = 4'b0000; //Targets memory system
-        
-        /*if (cmdin == 3'b000) begin
-            cmdout = 0; 
-        end */
 
-        /*//Writes addrdatain to FIFO
+        //Writes addrdatain to FIFO
         if ( (cmdin == 3'b001)  && (selin == 1) ) begin
             write_to_fifo = 1;
             data_in_blue = addrdatain[7:0];
             data_in_green = addrdatain[15:8];
             data_in_red = addrdatain[23:16];
-        end */
+        end 
     end
     else if (ackin) begin
         cmdout = 3'b101; //Requests write response from tb
