@@ -176,9 +176,6 @@ module vid5a(
             data_in_blue = addrdatain[7:0];
             data_in_green = addrdatain[15:8];
             data_in_red = addrdatain[23:16];
-            B = data_out_blue;
-            G = data_in_green;
-            R = data_out_red;
         end 
     end
     else if (ackin) begin
