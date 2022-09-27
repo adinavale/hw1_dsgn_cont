@@ -172,7 +172,6 @@ module vid5a(
         //Writes addrdatain to FIFO
         if ( (cmdin == 3'b001)  && (selin == 1) ) begin
             write_to_fifo = 1;
-            read_from_fifo = 1;
             data_in_blue = addrdatain[7:0];
             data_in_green = addrdatain[15:8];
             data_in_red = addrdatain[23:16];
