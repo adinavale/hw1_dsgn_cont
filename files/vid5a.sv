@@ -111,12 +111,9 @@ module vid5a(
         hblank = 0;
         vsync = 0;
         vblank = 0;
-        R = 0;
-        G = 0;
-        B = 0;
     end
   end
-
+//
   logic [31:0] reg_address;
 
   always_ff @ (posedge clk) begin
@@ -172,18 +169,30 @@ module vid5a(
         lenout = 2'b10; //Makes 4 transfers for a request
         reqtar = 4'b0000; //Targets memory system
 
-        //Writes addrdatain to FIFO
-        if ( (cmdin == 3'b001)  && (selin == 1) ) begin
-            write_to_fifo = 1;
-            data_in_blue = addrdatain[7:0];
-            data_in_green = addrdatain[15:8];
-            data_in_red = addrdatain[23:16];
-        end 
+        
     end
     else if (ackin) begin
         cmdout = 3'b101; //Requests write response from tb
     end
+
+    //Writes addrdatain to FIFO
+    if ( (cmdin == 3'b001)  && (selin == 1) ) begin
+        write_to_fifo = 1;
+        data_in_blue = addrdatain[7:0];
+        data_in_green = addrdatain[15:8];
+        data_in_red = addrdatain[23:16];
+    end 
+
+    /*if (cmdin == 3'b000) begin
+        read_from_fifo = 1;
+        write_to_fifo = 0;
+        B = data_out_blue;
+        G = data_out_green;
+        R = data_in_red;
+    end */
   end
+
+
 endmodule
 
 /*//FIFO registers
