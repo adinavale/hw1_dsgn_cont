@@ -56,8 +56,8 @@ logic [31:0] base_address;    //Address 0x0048
 logic [31:0] lineinc;         //Address 0x0050
 
 typedef enum { 
-    reset, 
-    reg_program
-} programmer_states;
+    res_st, 
+    reg_prog
+} prog_st;
 
 endmodule
