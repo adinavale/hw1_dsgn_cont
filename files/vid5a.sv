@@ -60,4 +60,18 @@ typedef enum {
     reg_prog
 } prog_st;
 
+initial begin
+    reqout = 0;
+    lenout = 0;
+    addrdataout = 0;
+    cmdout = 0;
+    reqtar = 0;
+    hsync = 0;
+    hblank = 0;
+    vsync = 0;
+    vblank = 0;
+    R = 0;
+    G = 0;
+    B = 0;
+end
 endmodule
