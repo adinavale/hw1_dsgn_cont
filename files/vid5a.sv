@@ -55,4 +55,9 @@ typedef struct packed {
 logic [31:0] base_address;    //Address 0x0048
 logic [31:0] lineinc;         //Address 0x0050
 
-    endmodule
+typedef enum { 
+    reset, 
+    reg_program
+} programmer_states;
+
+endmodule
