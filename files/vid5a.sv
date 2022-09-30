@@ -87,13 +87,13 @@ always @ (*) begin
     prog_st_d = prog_st;
     case (prog_st)
         cr_write : 
+            if (ackin) begin
+                prog_st_d = regs_write;
+            end
+
             if (cmdin == 3'b100) begin
                 reqout = 2'b11;
                 cmdout = 3'b101;
-            end
-
-            if (ackin) begin
-                prog_st_d = regs_write;
             end
         default : prog_st_d = cr_write;
     endcase
