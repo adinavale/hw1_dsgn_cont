@@ -92,7 +92,7 @@ always @ (*) begin
                 cmdout = 3'b101;
             end
 
-            if (ackin == 1) begin
+            if (ackin) begin
                 prog_st_d = regs_write;
             end
         default : prog_st_d = cr_write;
