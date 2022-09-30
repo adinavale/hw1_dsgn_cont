@@ -77,11 +77,11 @@ initial begin
 end
 
 typedef enum { 
-    wr_req,
-    regs_wr,
-    rgb_fetch,
-    rgb_to_fifo,
-    idle
+    wr_req,         //0
+    regs_wr,        //1
+    rgb_fetch,      //2
+    rgb_to_fifo,    //3
+    idle            //4
 } program_register_states;
 
 program_register_states prog_st, prog_st_d;
@@ -138,13 +138,12 @@ always @ (*) begin
             end
 
         rgb_fetch : 
+            cmdout = 3'b010; //Module makes read request
+            lenout = 2'b010; //Makes 4 transfers for a request
+            addrdataout = base_address; //TODO: UPDATE THIS AS YOU BUILD OUT THE STATE MACHINE!!!!!!!!!!!!!!!!!!!
             if (cmdin == 3'b000) begin //TB makes data phase request
                 prog_st_d = rgb_to_fifo;
-            end else begin
-                cmdout = 3'b010; //Module makes read request
-                lenout = 2'b010; //Makes 4 transfers for a request
-                addrdataout = base_address; //TODO: UPDATE THIS AS YOU BUILD OUT THE STATE MACHINE!!!!!!!!!!!!!!!!!!!
-            end
+            end 
         rgb_to_fifo :
             cmdout = 3'b101; //Module gives write response to TB
         default : prog_st_d = wr_req;
