@@ -89,6 +89,10 @@ always @ (*) begin
         cr_write : 
             if (cmdin == 3'b100) begin
                 reqout = 2'b11;
+                cmdout = 3'b101;
+            end
+
+            if (ackin == 1) begin
                 prog_st_d = regs_write;
             end
         default : prog_st_d = cr_write;
