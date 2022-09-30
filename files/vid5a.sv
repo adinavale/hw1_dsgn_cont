@@ -106,31 +106,31 @@ always @ (*) begin
         regs_wr :
             if (cr_reg.en == 1) begin
                 prog_st_d = rgb_fetch;
-            end else if (addrdatain_d == 0) begin
+            end else if (addrdatain_d == 0 && cmdin == 3'b001) begin
                 cr_reg.en = addrdatain[3];
                 cr_reg.pcnt = addrdatain[9:4];
                 cr_reg.vclk = addrdatain[15:14];
                 prog_st_d = wr_req;
-            end else if (addrdatain_d == 32'h00000028) begin
+            end else if (addrdatain_d == 32'h00000028 && cmdin == 3'b001) begin
                 h1_reg.hend = addrdatain[12:0];
                 h1_reg.hsize = addrdatain[25:13];
                 prog_st_d = wr_req;
-            end else if (addrdatain_d == 32'h00000030) begin
+            end else if (addrdatain_d == 32'h00000030 && cmdin == 3'b001) begin
                 h2_reg.hsync_start = addrdatain[25:13];
                 h2_reg.hsync_end = addrdatain[12:0];
                 prog_st_d = wr_req;
-            end else if (addrdatain_d == 32'h00000038) begin
+            end else if (addrdatain_d == 32'h00000038 && cmdin == 3'b001) begin
                 v1_reg.vend = addrdatain[12:0];
                 v1_reg.vsize = addrdatain[25:13];
                 prog_st_d = wr_req;
-            end else if (addrdatain_d == 32'h00000040) begin
+            end else if (addrdatain_d == 32'h00000040 && cmdin == 3'b001) begin
                 v2_reg.vsync_start = addrdatain[25:13];
                 v2_reg.vsync_end = addrdatain[12:0];
                 prog_st_d = wr_req;
             end else if (addrdatain_d == 32'h00000048 && cmdin == 3'b001) begin
                 base_address = addrdatain;
                 prog_st_d = wr_req;
-            end else if (addrdatain_d == 32'h00000050) begin
+            end else if (addrdatain_d == 32'h00000050 && cmdin == 3'b001) begin
                 lineinc = addrdatain;
                 prog_st_d = wr_req;
             end else begin
