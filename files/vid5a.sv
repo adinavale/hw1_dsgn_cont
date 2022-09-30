@@ -55,10 +55,6 @@ typedef struct packed {
 logic [31:0] base_address;    //Address 0x0048
 logic [31:0] lineinc;         //Address 0x0050
 
-typedef enum { 
-    res_st, 
-    reg_prog
-} prog_st;
 
 initial begin
     reqout = 0;
@@ -73,5 +69,29 @@ initial begin
     R = 0;
     G = 0;
     B = 0;
+end
+
+typedef enum { 
+    cr_write,
+    regs_write
+} program_register_states;
+
+program_register_states prog_st, prog_st_d;
+
+//Register programming sequential block
+always_ff @( posedge clk ) begin 
+    prog_st <= #1 prog_st_d;
+end
+
+always @ (*) begin
+    prog_st_d = prog_st;
+    case (prog_st)
+        cr_write : 
+            if (cmdin == 3'b100) begin
+                reqout = 2'b11;
+                prog_st_d = regs_write;
+            end
+        default : prog_st_d = cr_write;
+    endcase
 end
 endmodule
