@@ -101,7 +101,7 @@ always @ (*) begin
             end
         regs_wr :
             prog_st_d = wr_req;
-            if (cr_reg.en) begin
+            if (cr_reg.en == 1) begin
                 prog_st_d = idle;
             end else if (addrdatain_d == 0) begin
                 cr_reg.en = addrdatain[3];
