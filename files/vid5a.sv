@@ -142,6 +142,7 @@ always @ (*) begin
                 prog_st_d = rgb_to_fifo;
             end else begin
                 cmdout = 3'b010; //Module makes read request
+                cmdout = #1 3'b011;
                 addrdataout = base_address; //TODO: UPDATE THIS AS YOU BUILD OUT THE STATE MACHINE!!!!!!!!!!!!!!!!!!!
             end
         default : prog_st_d = wr_req;
