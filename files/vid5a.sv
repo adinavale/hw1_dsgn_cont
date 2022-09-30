@@ -101,29 +101,35 @@ always @ (*) begin
                 addrdatain_d = addrdatain;
             end
         regs_wr :
-            prog_st_d = wr_req;
             if (cr_reg.en == 1) begin
                 prog_st_d = idle;
             end else if (addrdatain_d == 0) begin
                 cr_reg.en = addrdatain[3];
                 cr_reg.pcnt = addrdatain[9:4];
                 cr_reg.vclk = addrdatain[15:14];
+                prog_st_d = wr_req;
             end else if (addrdatain_d == 28) begin
                 h1_reg.hend = addrdatain[12:0];
                 h1_reg.hsize = addrdatain[25:13];
+                prog_st_d = wr_req;
             end else if (addrdatain_d == 30) begin
                 h2.hsync_start = addrdatain[25:13];
                 h2.hsync_end = addrdatain[12:0];
+                prog_st_d = wr_req;
             end else if (addrdatain_d == 38) begin
                 v1.vend = addrdatain[12:0];
                 v1.vsize = addrdatain[25:13];
+                prog_st_d = wr_req;
             end else if (addrdatain_d == 40) begin
                 v2.vsync_start = addrdatain[25:13];
                 v2.vsync_end = addrdatain[12:0];
+                prog_st_d = wr_req;
             end else if (addrdatain_d == 48) begin
                 base_address = addrdatain;
+                prog_st_d = wr_req;
             end else if (addrdatain_d == 50) begin
                 lineinc = addrdatain;
+                prog_st_d = wr_req;
             end
         default : prog_st_d = wr_req;
     endcase
