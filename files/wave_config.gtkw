@@ -1,1 +1,49 @@
-WM Destroy
+[*]
+[*] GTKWave Analyzer v3.3.61 (w)1999-2014 BSI
+[*] Fri Sep 30 04:54:52 2022
+[*]
+[dumpfile] "/home/015313389@SJSUAD.SJSU.EDU/ee_272/Homework/hw1_dsgn_cont/files/vid5.vcd"
+[dumpfile_mtime] "Fri Sep 30 04:52:42 2022"
+[dumpfile_size] 90221
+[savefile] "/home/015313389@SJSUAD.SJSU.EDU/ee_272/Homework/hw1_dsgn_cont/files/wave_config.gtkw"
+[timestart] 0
+[size] 1280 617
+[pos] -1 -1
+*-9.000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top.
+[sst_width] 229
+[signals_width] 166
+[sst_expanded] 1
+[sst_vpaned_height] 145
+@28
+top.clk
+top.reset
+@22
+top.i0.B[7:0]
+top.i0.G[7:0]
+top.i0.R[7:0]
+@28
+top.i0.ackin
+@22
+top.i0.addrdatain[31:0]
+top.i0.addrdataout[31:0]
+@28
+top.i0.clk
+top.i0.cmdin[2:0]
+top.i0.cmdout[2:0]
+top.i0.enable
+top.i0.hblank
+top.i0.hsync
+top.i0.interrupt
+top.i0.lenin[1:0]
+top.i0.lenout[1:0]
+top.i0.reqout[1:0]
+@22
+top.i0.reqtar[3:0]
+@28
+top.i0.reset
+top.i0.selin
+top.i0.vblank
+top.i0.vsync
+[pattern_trace] 1
+[pattern_trace] 0
