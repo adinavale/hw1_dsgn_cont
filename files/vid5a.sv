@@ -82,7 +82,7 @@ typedef enum {
     idle            //6
 } program_register_states;
 
-program_register_states prog_st, prog_st_d;
+program_register_states df_st, df_st_d;
 
 fifo red_fifo (
     .clk            (clk),
@@ -144,60 +144,60 @@ end
 
 //Data fetch state machine
 always_ff @( posedge clk ) begin 
-    prog_st <= #1 prog_st_d;
+    df_st <= #1 df_st_d;
 end
 
 always @ (*) begin
-    prog_st_d = prog_st;
-    case (prog_st)
+    df_st_d = df_st;
+    case (df_st)
         wr_req : 
             if (cmdin == 3'b100) begin //TB makes write request
                 reqout = 2'b11; //Module makes bid for arbiter
                 cmdout = 3'b101; //Module makes write response
-                prog_st_d = regs_wr; 
+                df_st_d = regs_wr; 
                 addrdatain_d = addrdatain;
             end
 
         regs_wr :
             if (cr_reg.en == 1) begin
-                prog_st_d = tb_idle;
+                df_st_d = tb_idle;
             end else if (addrdatain_d == 0 && cmdin == 3'b001) begin
                 cr_reg.en = addrdatain[3];
                 cr_reg.pcnt = addrdatain[9:4];
                 cr_reg.vclk = addrdatain[15:14];
-                prog_st_d = wr_req;
+                df_st_d = wr_req;
             end else if (addrdatain_d == 32'h00000028 && cmdin == 3'b001) begin
                 h1_reg.hend = addrdatain[12:0];
                 h1_reg.hsize = addrdatain[25:13];
-                prog_st_d = wr_req;
+                df_st_d = wr_req;
             end else if (addrdatain_d == 32'h00000030 && cmdin == 3'b001) begin
                 h2_reg.hsync_start = addrdatain[25:13];
                 h2_reg.hsync_end = addrdatain[12:0];
-                prog_st_d = wr_req;
+                df_st_d = wr_req;
             end else if (addrdatain_d == 32'h00000038 && cmdin == 3'b001) begin
                 v1_reg.vend = addrdatain[12:0];
                 v1_reg.vsize = addrdatain[25:13];
-                prog_st_d = wr_req;
+                df_st_d = wr_req;
             end else if (addrdatain_d == 32'h00000040 && cmdin == 3'b001) begin
                 v2_reg.vsync_start = addrdatain[25:13];
                 v2_reg.vsync_end = addrdatain[12:0];
-                prog_st_d = wr_req;
+                df_st_d = wr_req;
             end else if (addrdatain_d == 32'h00000048 && cmdin == 3'b001) begin
                 base_address = addrdatain;
-                prog_st_d = wr_req;
+                df_st_d = wr_req;
             end else if (addrdatain_d == 32'h00000050 && cmdin == 3'b001) begin
                 lineinc = addrdatain;
-                prog_st_d = wr_req;
+                df_st_d = wr_req;
             end else begin
-                prog_st_d = wr_req;
+                df_st_d = wr_req;
             end
         tb_idle :
             if (cmdin == 3'b000) begin
-                prog_st_d = rgb_fetch;
+                df_st_d = rgb_fetch;
             end
         rgb_fetch : 
             if (cmdin == 3'b000) begin //TB makes data phase request
-                prog_st_d = tb_rd_resp;
+                df_st_d = tb_rd_resp;
                 cmdout = 3'b010; //Module makes read request
                 lenout = 2'b10; //Makes 4 transfers for a request
                 addrdataout = base_address; //TODO: UPDATE THIS AS YOU BUILD OUT THE STATE MACHINE!!!!!!!!!!!!!!!!!!!
@@ -205,7 +205,7 @@ always @ (*) begin
 
         tb_rd_resp :
             begin
-                prog_st_d = reg_to_fifo;
+                df_st_d = reg_to_fifo;
                 cmdout = 3'b101; //Module gives write response to TB
             end
         reg_to_fifo :
@@ -213,9 +213,9 @@ always @ (*) begin
                 data_pres = 1; //Data is ready to be pushed to fifo
             end else begin
                 data_pres = 0;
-                prog_st_d = tb_idle;
+                df_st_d = tb_idle;
             end
-        default : prog_st_d = wr_req;
+        default : df_st_d = wr_req;
     endcase
 end
 endmodule
