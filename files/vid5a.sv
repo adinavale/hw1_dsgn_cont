@@ -138,7 +138,7 @@ always @ (*) begin
             end
 
         rgb_fetch : 
-            if (cmdin == 3'b011) begin //TB makes data phase request
+            if (cmdin == 3'b000) begin //TB makes data phase request
                 prog_st_d = rgb_to_fifo;
             end else begin
                 cmdout = 3'b010; //Module makes read request
