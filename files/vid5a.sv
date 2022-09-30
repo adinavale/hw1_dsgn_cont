@@ -82,6 +82,7 @@ typedef enum {
 } program_register_states;
 
 program_register_states prog_st, prog_st_d;
+logic [31:0] addrdatain_d;
 
 //Register programming sequential block
 always_ff @( posedge clk ) begin 
@@ -96,9 +97,10 @@ always @ (*) begin
                 reqout = 2'b11; //Module makes bid for arbiter
                 cmdout = 3'b101; //Module makes write response
                 prog_st_d = regs_wr; 
+                addrdatain_d = addrdatain;
             end
         regs_wr :
-            if (addrdatain == 0) begin
+            if (addrdatain_d == 0) begin
                 prog_st_d = wr_req;
                 cr_reg.en = addrdatain[3];
                 cr_reg.pcnt = addrdatain[9:4];
