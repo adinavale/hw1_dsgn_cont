@@ -97,7 +97,7 @@ always @ (*) begin
                 cmdout = 3'b101; //Module makes write response
                 prog_st_d = regs_wr; 
             end
-        regs_write :
+        regs_wr :
             if (addrdatain == 0) begin
                 prog_st_d = wr_req;
                 cr_reg.en = addrdatain[3];
