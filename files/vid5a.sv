@@ -55,6 +55,11 @@ typedef struct packed {
 logic [31:0] base_address;    //Address 0x0048
 logic [31:0] lineinc;         //Address 0x0050
 
+cr cr_reg;
+h1 h1_reg;
+h2 h2_reg;
+v1 v1_reg;
+v2 v2_reg;
 
 initial begin
     reqout = 0;
@@ -93,11 +98,11 @@ always @ (*) begin
                 prog_st_d = regs_wr; 
             end
         regs_write :
-            if (addrdatain = 0) begin
+            if (addrdatain == 0) begin
                 prog_st_d = wr_req;
-                cr.en = addrdatain[3];
-                cr.pcnt = addrdatain[9:4];
-                cr.vclk = addrdatain[15:14];
+                cr_reg.en = addrdatain[3];
+                cr_reg.pcnt = addrdatain[9:4];
+                cr_reg.vclk = addrdatain[15:14];
             end
         default : prog_st_d = wr_req;
     endcase
