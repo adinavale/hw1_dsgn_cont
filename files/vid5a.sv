@@ -242,7 +242,7 @@ always @ (*) begin
             if (!data_pres) begin
                 rd_st_d = fifo_idle;
             end else begin
-                f_reg_red.data_in = addrdatain[25:9];
+                f_reg_red.data_in = addrdatain[25:16];
                 f_reg_green.data_in = addrdatain[15:8];
                 f_reg_blue.data_in = addrdatain[7:0];
             end
