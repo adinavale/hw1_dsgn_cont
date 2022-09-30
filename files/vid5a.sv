@@ -145,6 +145,8 @@ always @ (*) begin
                 lenout = 2'b010; //Makes 4 transfers for a request
                 addrdataout = base_address; //TODO: UPDATE THIS AS YOU BUILD OUT THE STATE MACHINE!!!!!!!!!!!!!!!!!!!
             end
+        rgb_to_fifo :
+            cmdout = 3'b101; //Module gives write response to TB
         default : prog_st_d = wr_req;
     endcase
 end
