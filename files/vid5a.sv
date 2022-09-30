@@ -138,12 +138,13 @@ always @ (*) begin
             end
 
         rgb_fetch : 
-            cmdout = 3'b010; //Module makes read request
-            lenout = 2'b10; //Makes 4 transfers for a request
-            addrdataout = base_address; //TODO: UPDATE THIS AS YOU BUILD OUT THE STATE MACHINE!!!!!!!!!!!!!!!!!!!
             if (cmdin == 3'b000) begin //TB makes data phase request
                 prog_st_d = rgb_to_fifo;
             end 
+            cmdout = 3'b010; //Module makes read request
+            lenout = 2'b10; //Makes 4 transfers for a request
+            addrdataout = base_address; //TODO: UPDATE THIS AS YOU BUILD OUT THE STATE MACHINE!!!!!!!!!!!!!!!!!!!
+
         rgb_to_fifo :
             cmdout = 3'b101; //Module gives write response to TB
         default : prog_st_d = wr_req;
