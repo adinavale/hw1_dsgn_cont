@@ -127,7 +127,7 @@ always @ (*) begin
                 v2_reg.vsync_start = addrdatain[25:13];
                 v2_reg.vsync_end = addrdatain[12:0];
                 prog_st_d = wr_req;
-            end else if (addrdatain_d == 32'h00000048) begin
+            end else if (addrdatain_d == 32'h00000048 && cmdin == 3'b001) begin
                 base_address = addrdatain;
                 prog_st_d = wr_req;
             end else if (addrdatain_d == 32'h00000050) begin
