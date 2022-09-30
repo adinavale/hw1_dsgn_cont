@@ -73,7 +73,7 @@ initial begin
     R = 0;
     G = 0;
     B = 0;
-    cr_reg.en
+    cr_reg.en = 0;
 end
 
 typedef enum { 
