@@ -1,21 +1,21 @@
 [*]
 [*] GTKWave Analyzer v3.3.61 (w)1999-2014 BSI
-[*] Fri Sep 30 19:52:57 2022
+[*] Fri Sep 30 20:26:35 2022
 [*]
 [dumpfile] "/home/015313389@SJSUAD.SJSU.EDU/ee_272/Homework/hw1_dsgn_cont/files/vid5.vcd"
-[dumpfile_mtime] "Fri Sep 30 19:51:56 2022"
-[dumpfile_size] 212204
+[dumpfile_mtime] "Fri Sep 30 20:15:11 2022"
+[dumpfile_size] 288325
 [savefile] "/home/015313389@SJSUAD.SJSU.EDU/ee_272/Homework/hw1_dsgn_cont/files/wave_config.gtkw"
-[timestart] 442000
+[timestart] 253500
 [size] 1280 617
 [pos] -51 -1
-*-16.000000 570000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-17.000000 497000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] top.
 [treeopen] top.v.
 [sst_width] 229
-[signals_width] 219
+[signals_width] 257
 [sst_expanded] 1
-[sst_vpaned_height] 164
+[sst_vpaned_height] 171
 @28
 top.clk
 top.reset
@@ -32,13 +32,19 @@ top.i0.addrdataout[31:0]
 top.i0.clk
 top.i0.cmdin[2:0]
 top.i0.cmdout[2:0]
-@24
-top.v.prog_st[31:0]
+@22
+top.v.red_fifo.data_in[7:0]
+top.v.green_fifo.data_in[7:0]
+top.v.blue_fifo.data_in[7:0]
+@28
+top.v.data_pres
+@23
+top.v.rd_st[31:0]
+@22
+top.v.df_st[31:0]
 @28
 top.i0.enable
-@29
 top.i0.hblank
-@28
 top.i0.hsync
 top.i0.interrupt
 top.i0.lenin[1:0]
@@ -62,9 +68,5 @@ top.v.v2_reg[25:0]
 top.v.reqtar[3:0]
 @28
 top.v.lenout[1:0]
-@22
-top.v.blue_fifo.data_in[7:0]
-top.v.green_fifo.data_in[7:0]
-top.v.red_fifo.data_in[7:0]
 [pattern_trace] 1
 [pattern_trace] 0

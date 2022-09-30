@@ -85,8 +85,8 @@ typedef enum {
 program_register_states df_st, df_st_d;
 
 typedef enum { 
-    push_fifo,
-    fifo_idle
+    fifo_idle,      //0
+    push_fifo       //1
 } receiving_data_state;
 
 receiving_data_state rd_st, rd_st_d;
