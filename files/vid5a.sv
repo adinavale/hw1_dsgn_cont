@@ -79,9 +79,10 @@ end
 typedef enum { 
     wr_req,         //0
     regs_wr,        //1
-    rgb_fetch,      //2
-    rgb_to_fifo,    //3
-    idle            //4
+    tb_idle,
+    rgb_fetch,      
+    rgb_to_fifo,    
+    idle            
 } program_register_states;
 
 program_register_states prog_st, prog_st_d;
@@ -136,7 +137,10 @@ always @ (*) begin
             end else begin
                 prog_st_d = wr_req;
             end
-
+        tb_idle :
+            if (cmdin == 3'b000) begin
+                prog_st_d = rgb_fetch;
+            end
         rgb_fetch : 
             if (cmdin == 3'b000) begin //TB makes data phase request
                 prog_st_d = rgb_to_fifo;
