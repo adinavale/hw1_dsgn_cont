@@ -130,6 +130,8 @@ always @ (*) begin
             end else if (addrdatain_d == 50) begin
                 lineinc = addrdatain;
                 prog_st_d = wr_req;
+            end else begin
+                prog_st_d = wr_req;
             end
         default : prog_st_d = wr_req;
     endcase
