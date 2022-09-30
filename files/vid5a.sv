@@ -113,16 +113,16 @@ always @ (*) begin
                 h1_reg.hsize = addrdatain[25:13];
                 prog_st_d = wr_req;
             end else if (addrdatain_d == 30) begin
-                h2.hsync_start = addrdatain[25:13];
-                h2.hsync_end = addrdatain[12:0];
+                h2_reg.hsync_start = addrdatain[25:13];
+                h2_reg.hsync_end = addrdatain[12:0];
                 prog_st_d = wr_req;
             end else if (addrdatain_d == 38) begin
-                v1.vend = addrdatain[12:0];
-                v1.vsize = addrdatain[25:13];
+                v1_reg.vend = addrdatain[12:0];
+                v1_reg.vsize = addrdatain[25:13];
                 prog_st_d = wr_req;
             end else if (addrdatain_d == 40) begin
-                v2.vsync_start = addrdatain[25:13];
-                v2.vsync_end = addrdatain[12:0];
+                v2_reg.vsync_start = addrdatain[25:13];
+                v2_reg.vsync_end = addrdatain[12:0];
                 prog_st_d = wr_req;
             end else if (addrdatain_d == 48) begin
                 base_address = addrdatain;
