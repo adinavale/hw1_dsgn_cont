@@ -61,8 +61,8 @@ v1 v1_reg;
 v2 v2_reg;
 
 typedef struct packed {
-    logic [7:0] data_in,
-    logic [7:0] data_out,
+    logic [7:0] data_in;
+    logic [7:0] data_out;
 } f; //FIFO regs
 
 f f_reg_red, f_reg_green, f_reg_blue;
