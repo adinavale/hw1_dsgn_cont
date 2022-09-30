@@ -69,7 +69,6 @@ f f_reg_red, f_reg_green, f_reg_blue;
 logic write_to_fifo;
 logic read_from_fifo;
 
-program_register_states prog_st, prog_st_d;
 logic [31:0] addrdatain_d;
 logic data_pres;
 
@@ -82,6 +81,8 @@ typedef enum {
     reg_to_fifo,    //5
     idle            //6
 } program_register_states;
+
+program_register_states prog_st, prog_st_d;
 
 fifo red_fifo (
     .clk            (clk),
