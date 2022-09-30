@@ -79,6 +79,8 @@ end
 typedef enum { 
     wr_req,
     regs_wr,
+    rgb_fetch,
+    rgb_to_fifo,
     idle
 } program_register_states;
 
@@ -100,9 +102,10 @@ always @ (*) begin
                 prog_st_d = regs_wr; 
                 addrdatain_d = addrdatain;
             end
+
         regs_wr :
             if (cr_reg.en == 1) begin
-                prog_st_d = idle;
+                prog_st_d = rgb_fetch;
             end else if (addrdatain_d == 0) begin
                 cr_reg.en = addrdatain[3];
                 cr_reg.pcnt = addrdatain[9:4];
@@ -132,6 +135,14 @@ always @ (*) begin
                 prog_st_d = wr_req;
             end else begin
                 prog_st_d = wr_req;
+            end
+
+        rgb_fetch : 
+            if (cmdin == 3'b001) begin //TB makes data phase request
+                prog_st_d = rgb_to_fifo;
+            end else begin
+                cmdout = 3'b010; //Module makes read request
+                addrdataout = base_address; //TODO: UPDATE THIS AS YOU BUILD OUT THE STATE MACHINE!!!!!!!!!!!!!!!!!!!
             end
         default : prog_st_d = wr_req;
     endcase
