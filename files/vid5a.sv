@@ -32,14 +32,13 @@ typedef struct packed {
 } cr; //offset 0x0000
 
 typedef struct packed {
-    logic [31:0] h1;              //Address 28
     logic [12:0] hend;          //Hend h1[12:0] - Total number of pixels per horizontal line
     logic [12:0] hsize;         //Hsize h1[25:13] - Number of displayed pixels per horizontal line  
 } h1; //offset 0x0028
 
 typedef struct packed {
-    logic [12:0] horiz_sync_start; //h2 [25:13] - pixel position of horizontal sync start
-    logic [12:0] horiz_sync_end;   //h2 [12:0] - pixel position of horizontal sync end
+    logic [12:0] hsync_start; //h2 [25:13] - pixel position of horizontal sync start
+    logic [12:0] hsync_end;   //h2 [12:0] - pixel position of horizontal sync end
 } h2; //0x0030
 
 typedef struct packed {
@@ -48,8 +47,8 @@ typedef struct packed {
 } v1; //0x0038
 
 typedef struct packed {
-    logic [12:0] vert_sync_start; //v2[25:13] - line position of vertical sync start
-    logic [12:0] vert_sync_end;   //v2[12:0] - line position of vertical sync end
+    logic [12:0] vsync_start; //v2[25:13] - line position of vertical sync start
+    logic [12:0] vsync_end;   //v2[12:0] - line position of vertical sync end
 } v2; //0x0040
 
 logic [31:0] base_address;    //Address 0x0048
@@ -78,7 +77,8 @@ end
 
 typedef enum { 
     wr_req,
-    regs_wr
+    regs_wr,
+    idle
 } program_register_states;
 
 program_register_states prog_st, prog_st_d;
@@ -100,11 +100,29 @@ always @ (*) begin
                 addrdatain_d = addrdatain;
             end
         regs_wr :
-            if (addrdatain_d == 0) begin
-                prog_st_d = wr_req;
+            prog_st_d = wr_req;
+            if (cr_reg.en) begin
+                prog_st_d = idle;
+            end else if (addrdatain_d == 0) begin
                 cr_reg.en = addrdatain[3];
                 cr_reg.pcnt = addrdatain[9:4];
                 cr_reg.vclk = addrdatain[15:14];
+            end else if (addrdatain_d == 28) begin
+                h1_reg.hend = addrdatain[12:0];
+                h1_reg.hsize = addrdatain[25:13];
+            end else if (addrdatain_d == 30) begin
+                h2.hsync_start = addrdatain[25:13];
+                h2.hsync_end = addrdatain[12:0];
+            end else if (addrdatain_d == 38) begin
+                v1.vend = addrdatain[12:0];
+                v1.vsize = addrdatain[25:13];
+            end else if (addrdatain_d == 40) begin
+                v2.vsync_start = addrdatain[25:13];
+                v2.vsync_end = addrdatain[12:0];
+            end else if (addrdatain_d == 48) begin
+                base_address = addrdatain;
+            end else if (addrdatain_d == 50) begin
+                lineinc = addrdatain;
             end
         default : prog_st_d = wr_req;
     endcase
