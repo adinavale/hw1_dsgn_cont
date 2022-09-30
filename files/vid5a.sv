@@ -84,6 +84,13 @@ typedef enum {
 
 program_register_states df_st, df_st_d;
 
+typedef enum { 
+    push_fifo,
+    fifo_idle
+} receiving_data_state;
+
+receiving_data_state rd_st, rd_st_d;
+
 fifo red_fifo (
     .clk            (clk),
     .reset_n        (~reset),
@@ -143,7 +150,7 @@ initial begin
 end
 
 //Data fetch state machine
-always_ff @( posedge clk ) begin 
+always_ff @(posedge clk) begin 
     df_st <= #1 df_st_d;
 end
 
@@ -218,7 +225,60 @@ always @ (*) begin
         default : df_st_d = wr_req;
     endcase
 end
+
+//Receiving data state machine
+always_ff @ (posedge clk) begin
+    rd_st <= #1 rd_st_d;
+end
+
+always @ (*) begin
+    rd_st_d = rd_st;
+    case (rd_st) 
+        fifo_idle : 
+            if (data_pres) begin
+                rd_st_d = push_fifo;
+            end
+        push_fifo :
+            if (!data_pres) begin
+                rd_st_d = fifo_idle;
+            end else begin
+                f_reg_red.data_in = addrdatain[25:9];
+                f_reg_green.data_in = addrdatain[15:8];
+                f_reg_blue.data_in = addrdatain[7:0];
+            end
+    endcase
+end
 endmodule
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 module fifo (
     input clk,
