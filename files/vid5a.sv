@@ -72,8 +72,8 @@ initial begin
 end
 
 typedef enum { 
-    cr_write,
-    regs_write
+    wr_req,
+    regs_wr
 } program_register_states;
 
 program_register_states prog_st, prog_st_d;
@@ -86,15 +86,20 @@ end
 always @ (*) begin
     prog_st_d = prog_st;
     case (prog_st)
-        cr_write : 
-            if (cmdin == 3'b100) begin
-                reqout = 2'b11;
-                cmdout = 3'b101;
-                prog_st_d = regs_write;
+        wr_req : 
+            if (cmdin == 3'b100) begin //TB makes write request
+                reqout = 2'b11; //Module makes bid for arbiter
+                cmdout = 3'b101; //Module makes write response
+                prog_st_d = regs_wr; 
             end
         regs_write :
-            cmdout = 3'b101;
-        default : prog_st_d = cr_write;
+            if (addrdatain = 0) begin
+                prog_st_d = wr_req;
+                cr.en = addrdatain[3];
+                cr.pcnt = addrdatain[9:4];
+                cr.vclk = addrdatain[15:14];
+            end
+        default : prog_st_d = wr_req;
     endcase
 end
 endmodule
