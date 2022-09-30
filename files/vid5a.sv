@@ -79,10 +79,11 @@ end
 typedef enum { 
     wr_req,         //0
     regs_wr,        //1
-    tb_idle,
-    rgb_fetch,      
-    tb_rd_resp,    
-    idle            
+    tb_idle,        //2
+    rgb_fetch,      //3
+    tb_rd_resp,     //4
+    reg_to_fifo,    //5
+    idle            //6
 } program_register_states;
 
 program_register_states prog_st, prog_st_d;
@@ -150,7 +151,10 @@ always @ (*) begin
             end 
 
         tb_rd_resp :
-            cmdout = 3'b101; //Module gives write response to TB
+            begin
+                prog_st_d = reg_to_fifo;
+                cmdout = 3'b101; //Module gives write response to TB
+            end
         default : prog_st_d = wr_req;
     endcase
 end
