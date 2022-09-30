@@ -140,7 +140,6 @@ always @ (*) begin
         tb_idle :
             if (cmdin == 3'b000) begin
                 prog_st_d = rgb_fetch;
-                cmdout = 3'b101;
             end
         rgb_fetch : 
             if (cmdin == 3'b000) begin //TB makes data phase request
