@@ -106,7 +106,7 @@ always @ (*) begin
 
         regs_wr :
             if (cr_reg.en == 1) begin
-                prog_st_d = rgb_fetch;
+                prog_st_d = tb_idle;
             end else if (addrdatain_d == 0 && cmdin == 3'b001) begin
                 cr_reg.en = addrdatain[3];
                 cr_reg.pcnt = addrdatain[9:4];
