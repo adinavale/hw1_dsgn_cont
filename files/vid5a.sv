@@ -318,6 +318,24 @@ end
         pcnt_inc : 
     endcase
 end */
+
+//outputs
+logic [10:0]    clk_count;
+logic [10:0]    clk_count_d;
+logic [31:0]    Ppter_count;
+logic [3:0]     PC_count;
+logic [4:0]     HC_count;
+logic [2:0]     Xcnt_count;
+logic [3:0]     Vcnt_count;
+
+assign clk_count = cnt_reg.clk;
+assign clk_count_d = cnt_reg.clk_d;
+assign Ppter_count = cnt_reg.Pptr;
+assign PC_count = cnt_reg.PC;
+assign HC_count = cnt_reg.HC;
+assign Xcnt_count = cnt_reg.Xcnt;
+assign Vcnt_count = cnt_reg.Vcnt;
+
 endmodule
 
 
