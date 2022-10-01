@@ -226,9 +226,12 @@ always @ (*) begin
     endcase
 end
 
+logic [31:0] data_to_fifo;
+
 //Receiving data state machine
 always_ff @ (posedge clk) begin
     rd_st <= #1 rd_st_d;
+    data_to_fifo <= addrdatain;
 end
 
 always @ (*) begin
@@ -237,15 +240,14 @@ always @ (*) begin
         fifo_idle : 
             if (data_pres) begin
                 rd_st_d = push_fifo;
-                addrdatain_d = addrdatain;
             end
         push_fifo :
             if (!data_pres) begin
                 rd_st_d = fifo_idle;
             end else begin
-                f_reg_red.data_in = addrdatain_d[25:16];
-                f_reg_green.data_in = addrdatain_d[15:8];
-                f_reg_blue.data_in = addrdatain_d[7:0];
+                f_reg_red.data_in = data_to_fifo[25:16];
+                f_reg_green.data_in = data_to_fifo[15:8];
+                f_reg_blue.data_in = data_to_fifo[7:0];
             end
     endcase
 end
