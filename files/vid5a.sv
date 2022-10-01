@@ -299,6 +299,7 @@ always @ (*) begin
             if (hblank) begin
                 sd_st_d = sd_idle;
             end
+    endcase
 end
 
 //Pixel counter state machine
