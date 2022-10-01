@@ -1,10 +1,10 @@
 [*]
 [*] GTKWave Analyzer v3.3.61 (w)1999-2014 BSI
-[*] Fri Sep 30 20:26:35 2022
+[*] Sat Oct  1 23:26:10 2022
 [*]
 [dumpfile] "/home/015313389@SJSUAD.SJSU.EDU/ee_272/Homework/hw1_dsgn_cont/files/vid5.vcd"
-[dumpfile_mtime] "Fri Sep 30 20:15:11 2022"
-[dumpfile_size] 288325
+[dumpfile_mtime] "Sat Oct  1 23:24:39 2022"
+[dumpfile_size] 527552
 [savefile] "/home/015313389@SJSUAD.SJSU.EDU/ee_272/Homework/hw1_dsgn_cont/files/wave_config.gtkw"
 [timestart] 253500
 [size] 1280 617
@@ -15,7 +15,7 @@
 [sst_width] 229
 [signals_width] 257
 [sst_expanded] 1
-[sst_vpaned_height] 171
+[sst_vpaned_height] 178
 @28
 top.clk
 top.reset
@@ -25,6 +25,8 @@ top.i0.G[7:0]
 top.i0.R[7:0]
 @28
 top.i0.ackin
+@25
+top.v.clk_count[10:0]
 @22
 top.i0.addrdatain[31:0]
 top.i0.addrdataout[31:0]
@@ -38,9 +40,8 @@ top.v.green_fifo.data_in[7:0]
 top.v.blue_fifo.data_in[7:0]
 @28
 top.v.data_pres
-@23
-top.v.rd_st[31:0]
 @22
+top.v.rd_st[31:0]
 top.v.df_st[31:0]
 @28
 top.i0.enable
@@ -68,5 +69,12 @@ top.v.v2_reg[25:0]
 top.v.reqtar[3:0]
 @28
 top.v.lenout[1:0]
+@22
+top.v.HC_count[4:0]
+top.v.PC_count[3:0]
+top.v.Ppter_count[31:0]
+top.v.Vcnt_count[3:0]
+@28
+top.v.Xcnt_count[2:0]
 [pattern_trace] 1
 [pattern_trace] 0
