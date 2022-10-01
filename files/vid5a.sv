@@ -73,13 +73,13 @@ logic [31:0] addrdatain_d;
 logic data_pres;
 
 typedef struct packed {
-    logic [10:0] clk,
-    logic [10:0] clk_d,
-    logic [31:0] Pptr, //Pixel pointer
-    logic [3:0] PC, //Pixel counter. Range 0 to 4.
-    logic [4:0] HC, //Horiz_counter. Range 0 to 14. Increments when PC = 0.
-    logic [2:0] Xcnt, //Disp pixel counter. Range 0 to 7. Increments when PC = 0 and Xcnt = 7.
-    logic [3:0] Vcnt, //Vertical count. Range 0 to 9. Increments @ hysnc posedge
+    logic [10:0] clk;
+    logic [10:0] clk_d;
+    logic [31:0] Pptr; //Pixel pointer
+    logic [3:0] PC; //Pixel counter. Range 0 to 4.
+    logic [4:0] HC; //Horiz_counter. Range 0 to 14. Increments when PC = 0.
+    logic [2:0] Xcnt; //Disp pixel counter. Range 0 to 7. Increments when PC = 0 and Xcnt = 7.
+    logic [3:0] Vcnt; //Vertical count. Range 0 to 9. Increments @ hysnc posedge
 } cnt;
 
 cnt cnt_reg;
