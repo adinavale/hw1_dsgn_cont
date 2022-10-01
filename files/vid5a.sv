@@ -319,7 +319,7 @@ end
     endcase
 end */
 
-//outputs
+/*//outputs
 logic [10:0]    clk_count;
 logic [10:0]    clk_count_d;
 logic [31:0]    Ppter_count;
@@ -334,7 +334,7 @@ assign Ppter_count = cnt_reg.Pptr;
 assign PC_count = cnt_reg.PC;
 assign HC_count = cnt_reg.HC;
 assign Xcnt_count = cnt_reg.Xcnt;
-assign Vcnt_count = cnt_reg.Vcnt;
+assign Vcnt_count = cnt_reg.Vcnt;*/
 
 endmodule
 
