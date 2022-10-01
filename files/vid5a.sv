@@ -74,6 +74,7 @@ logic data_pres;
 
 typedef struct packed {
     logic [10:0] clk,
+    logic [10:0] clk_d,
     logic [31:0] Pptr, //Pixel pointer
     logic [3:0] PC, //Pixel counter. Range 0 to 4.
     logic [4:0] HC, //Horiz_counter. Range 0 to 14. Increments when PC = 0.
@@ -173,7 +174,7 @@ initial begin
     R = 0;
     G = 0;
     B = 0;
-    cr_reg.en = 0;
+    cnt_reg = 0;
 end
 
 //Data fetch state machine
@@ -272,7 +273,6 @@ always @ (*) begin
             if (!data_pres) begin
                 rd_st_d = fifo_idle;
                 write_to_fifo = 0;
-                hblank = 0;
             end else begin
                 write_to_fifo = 1;
                 f_reg_red.data_in = data_to_fifo[25:16];
@@ -304,15 +304,16 @@ end
 //Pixel counter state machine
 always_ff @ (posedge clk) begin
     cs_st <= #1 cs_st_d;
+    clk <= clk_d + 1;
 end
 
-always @ (*) begin
+/*always @ (*) begin
     cs_st_d = cs_st;
 
     case (cs_st)
         pcnt_inc : 
     endcase
-end
+end */
 endmodule
 
 
