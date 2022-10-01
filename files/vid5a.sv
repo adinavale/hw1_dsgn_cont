@@ -307,7 +307,7 @@ always_ff @ (posedge clk) begin
         cnt_reg <= 0;
     end else begin
         cs_st <= #1 cs_st_d;
-        cnt_reg.clk <= cnt_reg.counter_d + 1;
+        cnt_reg.counter <= cnt_reg.counter_d + 1;
     end
 end
 
