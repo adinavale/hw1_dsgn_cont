@@ -305,7 +305,7 @@ end
 //Pixel counter state machine
 always_ff @ (posedge clk) begin
     cs_st <= #1 cs_st_d;
-    clk <= clk_d + 1;
+    cnt_reg.clk <= cnt_reg.clk_d + 1;
 end
 
 /*always @ (*) begin
