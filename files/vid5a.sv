@@ -244,7 +244,9 @@ always @ (*) begin
         push_fifo :
             if (!data_pres) begin
                 rd_st_d = fifo_idle;
+                write_to_fifo = 0;
             end else begin
+                write_to_fifo = 1;
                 f_reg_red.data_in = data_to_fifo[25:16];
                 f_reg_green.data_in = data_to_fifo[15:8];
                 f_reg_blue.data_in = data_to_fifo[7:0];
