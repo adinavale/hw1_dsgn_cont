@@ -174,7 +174,6 @@ initial begin
     R = 0;
     G = 0;
     B = 0;
-    cnt_reg = 0;
 end
 
 //Data fetch state machine
@@ -304,8 +303,12 @@ end
 
 //Pixel counter state machine
 always_ff @ (posedge clk) begin
-    cs_st <= #1 cs_st_d;
-    cnt_reg.clk <= cnt_reg.clk_d + 1;
+    if (reset) begin
+        cnt_reg <= 0;
+    end else begin
+        cs_st <= #1 cs_st_d;
+        cnt_reg.clk <= cnt_reg.clk_d + 1;
+    end
 end
 
 /*always @ (*) begin
