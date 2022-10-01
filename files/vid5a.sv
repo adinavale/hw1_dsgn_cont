@@ -140,7 +140,7 @@ initial begin
     cmdout = 0;
     reqtar = 0;
     hsync = 0;
-    hblank = 0;
+    hblank = 1;
     vsync = 0;
     vblank = 0;
     R = 0;
@@ -245,6 +245,7 @@ always @ (*) begin
             if (!data_pres) begin
                 rd_st_d = fifo_idle;
                 write_to_fifo = 0;
+                hblank = 0;
             end else begin
                 write_to_fifo = 1;
                 f_reg_red.data_in = data_to_fifo[25:16];
