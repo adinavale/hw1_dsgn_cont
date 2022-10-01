@@ -72,6 +72,17 @@ logic read_from_fifo;
 logic [31:0] addrdatain_d;
 logic data_pres;
 
+typedef struct packed {
+    logic [10:0] clk,
+    logic [31:0] Pptr, //Pixel pointer
+    logic [3:0] PC, //Pixel counter. Range 0 to 4.
+    logic [4:0] HC, //Horiz_counter. Range 0 to 14. Increments when PC = 0.
+    logic [2:0] Xcnt, //Disp pixel counter. Range 0 to 7. Increments when PC = 0 and Xcnt = 7.
+    logic [3:0] Vcnt, //Vertical count. Range 0 to 9. Increments @ hysnc posedge
+} cnt;
+
+cnt cnt_reg;
+
 typedef enum { 
     wr_req,         //0
     regs_wr,        //1
@@ -90,6 +101,22 @@ typedef enum {
 } receiving_data_state;
 
 receiving_data_state rd_st, rd_st_d;
+
+typedef enum { 
+    sd_idle,        //0
+    rgb_out         //1
+} send_data_states;
+
+send_data_states sd_st, sd_st_d;
+    
+typedef enum (
+    disp_pixels,
+    front_porch,
+    hsync_high,
+    back_porch
+) clocking_states;
+
+clocking_states cs_st, cs_st_d;
 
 fifo red_fifo (
     .clk            (clk),
@@ -252,6 +279,38 @@ always @ (*) begin
                 f_reg_green.data_in = data_to_fifo[15:8];
                 f_reg_blue.data_in = data_to_fifo[7:0];
             end
+    endcase
+end
+
+//Sending data state machine
+always_ff @ (posedge clk) begin
+    sd_st <= #1 sd_st_d;
+end
+
+always @ (*) begin
+    sd_st_d = sd_st;
+
+    case (sd_st)
+        sd_idle : 
+            if (!hblank) begin
+                sd_st_d = rgb_out;
+            end
+        rgb_out :
+            if (hblank) begin
+                sd_st_d = sd_idle;
+            end
+end
+
+//Pixel counter state machine
+always_ff @ (posedge clk) begin
+    cs_st <= #1 cs_st_d;
+end
+
+always @ (*) begin
+    cs_st_d = cs_st;
+
+    case (cs_st)
+        pcnt_inc : 
     endcase
 end
 endmodule
