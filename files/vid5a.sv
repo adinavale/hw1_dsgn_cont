@@ -110,12 +110,12 @@ typedef enum {
 
 send_data_states sd_st, sd_st_d;
     
-typedef enum (
+typedef enum {
     disp_pixels,
     front_porch,
     hsync_high,
     back_porch
-) clocking_states;
+ } clocking_states;
 
 clocking_states cs_st, cs_st_d;
 
