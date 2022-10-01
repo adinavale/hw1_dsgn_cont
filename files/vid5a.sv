@@ -319,7 +319,7 @@ end
     endcase
 end */
 
-/*//outputs
+//outputs
 logic [10:0]    clk_count;
 logic [10:0]    clk_count_d;
 logic [31:0]    Ppter_count;
@@ -328,13 +328,15 @@ logic [4:0]     HC_count;
 logic [2:0]     Xcnt_count;
 logic [3:0]     Vcnt_count;
 
-assign clk_count = cnt_reg.counter;
-assign clk_count_d = cnt_reg.counter_d;
-assign Ppter_count = cnt_reg.Pptr;
-assign PC_count = cnt_reg.PC;
-assign HC_count = cnt_reg.HC;
-assign Xcnt_count = cnt_reg.Xcnt;
-assign Vcnt_count = cnt_reg.Vcnt;*/
+ always @ (*) begin
+    clk_count = cnt_reg.counter;
+    clk_count_d = cnt_reg.counter_d;
+    Ppter_count = cnt_reg.Pptr;
+    PC_count = cnt_reg.PC;
+    HC_count = cnt_reg.HC;
+    Xcnt_count = cnt_reg.Xcnt;
+    Vcnt_count = cnt_reg.Vcnt;
+ end
 
 endmodule
 
