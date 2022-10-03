@@ -360,7 +360,7 @@ always @ (*) begin
         back_porch :
             if ( cnt_reg.HC > 12 ) begin
                 hsync = 0;
-            end else if ( cnt_reg.HC == 14 && cnt_reg.PC == 4) begin
+            end else if ( cnt_reg.HC < 8 ) begin
                 cs_st_d = disp_pixels;
             end
         default : cs_st_d = disp_pixels; 
