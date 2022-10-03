@@ -313,7 +313,7 @@ always_ff @ (posedge clk) begin
         end else if (cnt_reg.PC == 4) begin
             cnt_reg.HC <= cnt_reg.HC + 1;
         end
-        if ( ((cnt_reg.PC == 4) && (cnt_reg.Xcnt == 7)) || (cnt_reg.HC > 7) || (!cnt_reg.PC && !cnt_reg.HC)) begin //Xcnt counter
+        if ( ((cnt_reg.PC == 4) && (cnt_reg.Xcnt == 7)) || (cnt_reg.HC > 7) || (cnt_reg.PC == 4 && cnt_reg.HC == 14)) begin //Xcnt counter
             cnt_reg.Xcnt = 0;
         end else if ( (cnt_reg.PC == 4) && (cnt_reg.HC < 8) ) begin
             cnt_reg.Xcnt <= cnt_reg.Xcnt + 1;
