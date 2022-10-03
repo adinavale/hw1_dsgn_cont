@@ -1,21 +1,21 @@
 [*]
 [*] GTKWave Analyzer v3.3.61 (w)1999-2014 BSI
-[*] Mon Oct  3 18:22:22 2022
+[*] Mon Oct  3 20:14:48 2022
 [*]
 [dumpfile] "/home/015313389@SJSUAD.SJSU.EDU/ee_272/Homework/hw1_dsgn_cont/files/vid5.vcd"
-[dumpfile_mtime] "Mon Oct  3 18:20:58 2022"
-[dumpfile_size] 547967
+[dumpfile_mtime] "Mon Oct  3 20:10:16 2022"
+[dumpfile_size] 544556
 [savefile] "/home/015313389@SJSUAD.SJSU.EDU/ee_272/Homework/hw1_dsgn_cont/files/wave_config.gtkw"
-[timestart] 436100
+[timestart] 569100
 [size] 1280 617
 [pos] -51 -1
-*-15.000000 497000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-15.000000 630000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] top.
 [treeopen] top.v.
 [sst_width] 229
 [signals_width] 257
 [sst_expanded] 1
-[sst_vpaned_height] 186
+[sst_vpaned_height] 194
 @28
 top.clk
 top.reset
@@ -31,6 +31,8 @@ top.v.clk_count[10:0]
 top.v.PC_count[3:0]
 @25
 top.v.HC_count[4:0]
+@24
+top.v.cs_st[31:0]
 top.v.Xcnt_count[2:0]
 @22
 top.i0.addrdatain[31:0]
