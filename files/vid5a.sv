@@ -306,8 +306,13 @@ always_ff @ (posedge clk) begin
         cnt_reg <= 0;
     end else begin
         cs_st <= #1 cs_st_d;
-        cnt_reg.counter <= cnt_reg.counter + 1;
-        cnt_reg.PC <= (cnt_reg.counter + 1) % 5;
+        cnt_reg.counter <= cnt_reg.counter + 1; //Clock counter
+        cnt_reg.PC <= (cnt_reg.counter + 1) % 5; //Pixel counter
+        if ( (cnt_reg.PC == 4) && (cnt_reg.HC == 14) ) begin
+            cnt_reg.HC = 0;
+        end else if (cnt_reg.PC == 4) begin
+            cnt_reg.HC <= cnt_reg.HC + 1;
+        end
     end
 end
 
