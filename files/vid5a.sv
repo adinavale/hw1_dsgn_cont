@@ -307,6 +307,7 @@ always_ff @ (posedge clk) begin
     end else begin
         cs_st <= #1 cs_st_d;
         cnt_reg.counter <= cnt_reg.counter + 1;
+        cnt_reg.PC_count <= cnt_reg.controller % 5;
     end
 end
 
