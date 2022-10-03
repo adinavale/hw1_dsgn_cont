@@ -77,7 +77,7 @@ typedef struct packed {
     logic [31:0] Pptr; //Pixel pointer
     logic [3:0] PC; //Pixel counter. Range 0 to 4.
     logic [4:0] HC; //Horiz_counter. Range 0 to 14. Increments when PC = 0.
-    logic [2:0] Xcnt; //Disp pixel counter. Range 0 to 7. Increments when PC = 0 and Xcnt = 7.
+    logic [2:0] Xcnt; //Disp pixel counter. Range 0 to 7. Resets to 0 when when PC = 0 and Xcnt = 7.
     logic [3:0] Vcnt; //Vertical count. Range 0 to 9. Increments @ hysnc posedge
 } cnt;
 
@@ -300,7 +300,7 @@ always @ (*) begin
     endcase
 end
 
-//Pixel counter state machine
+//Counter state machine
 always_ff @ (posedge clk) begin
     if (reset) begin
         cnt_reg <= 0;
@@ -308,10 +308,15 @@ always_ff @ (posedge clk) begin
         cs_st <= #1 cs_st_d;
         cnt_reg.counter <= cnt_reg.counter + 1; //Clock counter
         cnt_reg.PC <= (cnt_reg.counter + 1) % 5; //Pixel counter
-        if ( (cnt_reg.PC == 4) && (cnt_reg.HC == 14) ) begin
+        if ( (cnt_reg.PC == 4) && (cnt_reg.HC == 14) ) begin //HC counter
             cnt_reg.HC = 0;
         end else if (cnt_reg.PC == 4) begin
             cnt_reg.HC <= cnt_reg.HC + 1;
+        end
+        if ( (cnt_reg.PC == 4) && (cnt_reg.Xcnt == 7) ) begin //Xcnt counter
+            cnt_reg.Xcnt = 0;
+        end else if (cnt_reg.PC == 4) begin
+            cnt_reg.Xcnt <= cnt_reg.Xcnt + 1;
         end
     end
 end
