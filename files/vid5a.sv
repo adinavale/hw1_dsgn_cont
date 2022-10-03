@@ -332,8 +332,6 @@ always @ (*) begin
                 hsync = 0;
                 vsync = 0;
                 vblank = 0; //TODO: ADD RGB OUTPUTS
-                write_to_fifo = 0;
-                read_from_fifo = 1;
             end else if (cnt_reg.HC >= 8) begin
                 cs_st_d = front_porch;
             end
@@ -346,8 +344,6 @@ always @ (*) begin
                 f_reg_red.fifo_reset = 1;
                 f_reg_green.fifo_reset = 1;
                 f_reg_blue.fifo_reset = 1;
-                write_to_fifo = 0;
-                read_from_fifo = 0;
             end else if ( cnt_reg.HC >= 10 && cnt_reg.HC < 13) begin
                 cs_st_d = hsync_high;
             end
