@@ -309,12 +309,12 @@ always_ff @ (posedge clk) begin
         cnt_reg.counter <= cnt_reg.counter + 1; //Clock counter
         cnt_reg.PC <= (cnt_reg.counter + 1) % 5; //Pixel counter
         if ( (cnt_reg.PC == 4) && (cnt_reg.HC == 14) ) begin //HC counter
-            cnt_reg.HC = 0;
+            cnt_reg.HC <= 0;
         end else if (cnt_reg.PC == 4) begin
             cnt_reg.HC <= cnt_reg.HC + 1;
         end
         if ( ((cnt_reg.PC == 4) && (cnt_reg.Xcnt == 7)) || (cnt_reg.HC > 7) || (cnt_reg.PC == 4 && cnt_reg.HC == 14) || (!cnt_reg.PC && !cnt_reg.HC)) begin //Xcnt counter
-            cnt_reg.Xcnt = 0;
+            cnt_reg.Xcnt <= 0;
         end else if ( (cnt_reg.PC == 4) && (cnt_reg.HC < 8) ) begin
             cnt_reg.Xcnt <= cnt_reg.Xcnt + 1;
         end
