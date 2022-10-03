@@ -63,6 +63,7 @@ v2 v2_reg;
 typedef struct packed {
     logic [7:0] data_in;
     logic [7:0] data_out;
+    logic fifo_reset;
 } f; //FIFO regs
 
 f f_reg_red, f_reg_green, f_reg_blue;
@@ -301,7 +302,7 @@ always @ (*) begin
 end
 
 //Counter state machine
-always_ff @ (posedge clk) begin
+always_ff @ (posedge clk) begin //TODO: COME BACK AND ADD VCNT INCREMENTING AT POSEDGE OF HSYNC
     if (reset) begin
         cnt_reg <= 0;
     end else begin
@@ -321,13 +322,50 @@ always_ff @ (posedge clk) begin
     end
 end
 
-/*always @ (*) begin
+always @ (*) begin
     cs_st_d = cs_st;
 
     case (cs_st)
-        pcnt_inc : 
+        disp_pixels :
+            if ( cnt_reg.HC < 8 ) begin
+                hblank = 0;
+                hsync = 0;
+                vsync = 0;
+                vblank = 0; //TODO: ADD RGB OUTPUTS
+                write_to_fifo = 0;
+                read_from_fifo = 1;
+            end else if (cnt_reg.HC >= 8) begin
+                cs_st_d = front_porch;
+            end
+        front_porch :
+            if ( cnt_reg.HC >= 8 && cnt_reg.HC < 10 ) begin
+                hblank = 1;
+                hsync = 0;
+                vsync = 0;
+                vblank = 0; 
+                f_reg_red.fifo_reset = 1;
+                f_reg_green.fifo_reset = 1;
+                f_reg_blue.fifo_reset = 1;
+                write_to_fifo = 0;
+                read_from_fifo = 0;
+            end else if ( cnt_reg.HC >= 10 && cnt_reg.HC < 13) begin
+                cs_st_d = hsync_high;
+            end
+        hsync_high :
+            if ( cnt_reg.HC >= 10 && cnt_reg.HC < 13 ) begin
+                hsync = 1;
+            end else if ( cnt_reg.HC >= 12 && cnt_reg.HC <= 14 ) begin
+                cs_st_d = back_porch;
+            end
+        back_porch :
+            if ( cnt_reg.HC > 12 ) begin
+                hsync = 0;
+            end else if ( cnt_reg.HC == 14 && cnt_reg.PC == 4) begin
+                cs_st_d = disp_pixels;
+            end
+        default : cs_st_d = disp_pixels; 
     endcase
-end */
+end
 
 //outputs
 logic [10:0]    clk_count;
