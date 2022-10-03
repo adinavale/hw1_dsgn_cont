@@ -111,10 +111,10 @@ typedef enum {
 send_data_states sd_st, sd_st_d;
     
 typedef enum {
-    disp_pixels,
-    front_porch,
-    hsync_high,
-    back_porch
+    disp_pixels,    //0
+    front_porch,    //1
+    hsync_high,     //2
+    back_porch      //3
  } clocking_states;
 
 clocking_states cs_st, cs_st_d;
@@ -354,7 +354,7 @@ always @ (*) begin
         hsync_high :
             if ( cnt_reg.HC >= 10 && cnt_reg.HC < 13 ) begin
                 hsync = 1;
-            end else if ( cnt_reg.HC >= 12 && cnt_reg.HC <= 14 ) begin
+            end else if ( cnt_reg.HC > 12 && cnt_reg.HC <= 14 ) begin
                 cs_st_d = back_porch;
             end
         back_porch :
