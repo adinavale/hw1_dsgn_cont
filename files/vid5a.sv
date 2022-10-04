@@ -457,7 +457,7 @@ module fifo (
     output fifo_full, fifo_empty, fifo_threshold, fifo_overflow, fifo_underflow
 );
 
-    logic [4:0] write_ptr, read_ptr;
+    logic [3:0] write_ptr, read_ptr;
     logic fifo_we, fifo_re;
 
     write_pointer write_inst (
@@ -517,12 +517,12 @@ module storage (
 
     always_ff @(posedge clk) begin
         if (fifo_we) begin
-            storage_array[write_ptr[3:0]] <= data_in;
+            storage_array[write_ptr[2:0]] <= data_in;
         end
     end
 
     always @ (*) begin
-        data_out = storage_array[read_ptr[3:0]];
+        data_out = storage_array[read_ptr[2:0]];
     end
 endmodule
 
@@ -533,7 +533,7 @@ module read_pointer (
     input read,
     input fifo_empty,
     
-    output logic [4:0] read_ptr,
+    output logic [3:0] read_ptr,
     output fifo_re
 );
 
@@ -581,7 +581,7 @@ module status_signals (
     input write, read,
     input fifo_we, fifo_re,
 
-    input [4:0] write_ptr, read_ptr,
+    input [3:0] write_ptr, read_ptr,
 
     output logic fifo_full, fifo_empty, fifo_threshold, fifo_overflow, fifo_underflow
 );
@@ -590,7 +590,7 @@ module status_signals (
     logic pointer_equal;
     logic [4:0] pointer_result;
 
-    assign fbit_comp = write_ptr[4] ^ read_ptr[4];
+    assign fbit_comp = write_ptr[3] ^ read_ptr[3];
     assign pointer_equal = (write_ptr) ? 0 : 1;
     assign pointer_result = write_ptr - read_ptr;
     assign overflow_set = fifo_full & write;
