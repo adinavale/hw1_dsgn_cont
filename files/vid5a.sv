@@ -349,7 +349,7 @@ always @ (*) begin
 
     case (cs_st)
         disp_pixels :
-            if ( cnt_reg.HC < 8 ) begin
+            if ( cnt_reg.HC < 9 ) begin
                 hblank = 0;
                 hsync = 0;
                 vsync = 0;
@@ -358,7 +358,7 @@ always @ (*) begin
                 cs_st_d = front_porch;
             end
         front_porch :
-            if ( cnt_reg.HC >= 8 && cnt_reg.HC < 10 ) begin
+            if ( cnt_reg.HC >= 9 && cnt_reg.HC < 10 ) begin
                 hblank = 1;
                 hsync = 0;
                 vsync = 0;
