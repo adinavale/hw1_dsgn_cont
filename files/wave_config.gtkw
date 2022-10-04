@@ -1,22 +1,22 @@
 [*]
 [*] GTKWave Analyzer v3.3.61 (w)1999-2014 BSI
-[*] Tue Oct  4 00:04:07 2022
+[*] Tue Oct  4 00:21:19 2022
 [*]
 [dumpfile] "/home/015313389@SJSUAD.SJSU.EDU/ee_272/Homework/hw1_dsgn_cont/files/vid5.vcd"
-[dumpfile_mtime] "Mon Oct  3 23:37:14 2022"
-[dumpfile_size] 662578
+[dumpfile_mtime] "Tue Oct  4 00:13:00 2022"
+[dumpfile_size] 379853
 [savefile] "/home/015313389@SJSUAD.SJSU.EDU/ee_272/Homework/hw1_dsgn_cont/files/wave_config.gtkw"
-[timestart] 579200
+[timestart] 498200
 [size] 1280 617
-[pos] -1 -1
-*-16.000000 701000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[pos] -51 -1
+*-16.000000 690000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] top.
 [treeopen] top.v.
 [sst_width] 229
 [signals_width] 257
 [sst_expanded] 1
-[sst_vpaned_height] 194
-@28
+[sst_vpaned_height] 202
+@29
 top.clk
 @22
 top.i0.B[7:0]
@@ -31,9 +31,7 @@ top.v.PC_count[3:0]
 @24
 top.v.HC_count[4:0]
 top.v.cs_st[31:0]
-@25
 top.v.df_st[31:0]
-@24
 top.v.rd_st[31:0]
 @28
 top.v.write_to_fifo
@@ -51,10 +49,9 @@ top.v.green_fifo.data_in[7:0]
 top.v.blue_fifo.data_in[7:0]
 @28
 top.v.data_pres
+top.i0.hsync
 top.v.hblank
 top.i0.enable
-top.i0.hblank
-top.i0.hsync
 top.i0.interrupt
 top.reset
 top.i0.lenin[1:0]
