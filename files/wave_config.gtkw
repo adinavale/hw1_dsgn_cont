@@ -1,15 +1,15 @@
 [*]
 [*] GTKWave Analyzer v3.3.61 (w)1999-2014 BSI
-[*] Mon Oct  3 20:14:48 2022
+[*] Tue Oct  4 00:04:07 2022
 [*]
 [dumpfile] "/home/015313389@SJSUAD.SJSU.EDU/ee_272/Homework/hw1_dsgn_cont/files/vid5.vcd"
-[dumpfile_mtime] "Mon Oct  3 20:10:16 2022"
-[dumpfile_size] 544556
+[dumpfile_mtime] "Mon Oct  3 23:37:14 2022"
+[dumpfile_size] 662578
 [savefile] "/home/015313389@SJSUAD.SJSU.EDU/ee_272/Homework/hw1_dsgn_cont/files/wave_config.gtkw"
-[timestart] 569100
+[timestart] 579200
 [size] 1280 617
-[pos] -51 -1
-*-15.000000 630000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[pos] -1 -1
+*-16.000000 701000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] top.
 [treeopen] top.v.
 [sst_width] 229
@@ -18,7 +18,6 @@
 [sst_vpaned_height] 194
 @28
 top.clk
-top.reset
 @22
 top.i0.B[7:0]
 top.i0.G[7:0]
@@ -29,16 +28,21 @@ top.i0.ackin
 top.v.clk_count[10:0]
 @22
 top.v.PC_count[3:0]
-@25
-top.v.HC_count[4:0]
 @24
+top.v.HC_count[4:0]
 top.v.cs_st[31:0]
+@25
+top.v.df_st[31:0]
+@24
+top.v.rd_st[31:0]
+@28
+top.v.write_to_fifo
+@24
 top.v.Xcnt_count[2:0]
 @22
 top.i0.addrdatain[31:0]
 top.i0.addrdataout[31:0]
 @28
-top.i0.clk
 top.i0.cmdin[2:0]
 top.i0.cmdout[2:0]
 @22
@@ -47,14 +51,12 @@ top.v.green_fifo.data_in[7:0]
 top.v.blue_fifo.data_in[7:0]
 @28
 top.v.data_pres
-@22
-top.v.rd_st[31:0]
-top.v.df_st[31:0]
-@28
+top.v.hblank
 top.i0.enable
 top.i0.hblank
 top.i0.hsync
 top.i0.interrupt
+top.reset
 top.i0.lenin[1:0]
 top.i0.lenout[1:0]
 top.i0.reqout[1:0]
@@ -79,5 +81,8 @@ top.v.lenout[1:0]
 @22
 top.v.Ppter_count[31:0]
 top.v.Vcnt_count[3:0]
+top.v.B[7:0]
+top.v.G[7:0]
+top.v.R[7:0]
 [pattern_trace] 1
 [pattern_trace] 0
