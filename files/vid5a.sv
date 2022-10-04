@@ -64,6 +64,7 @@ typedef struct packed {
     logic [7:0] data_in;
     logic [7:0] data_out;
     logic fifo_reset;
+    logic empty;
 } f; //FIFO regs
 
 f f_reg_red, f_reg_green, f_reg_blue;
@@ -127,7 +128,7 @@ fifo red_fifo (
     .data_in        (f_reg_red.data_in),
     .data_out       (f_reg_red.data_out),
     .fifo_full      (),
-    .fifo_empty     (),
+    .fifo_empty     (f_reg_red.empty),
     .fifo_threshold (),
     .fifo_overflow  (),
     .fifo_underflow ()
@@ -141,7 +142,7 @@ fifo red_fifo (
     .data_in        (f_reg_green.data_in),
     .data_out       (f_reg_green.data_out),
     .fifo_full      (),
-    .fifo_empty     (),
+    .fifo_empty     (f_reg_green.empty),
     .fifo_threshold (),
     .fifo_overflow  (),
     .fifo_underflow ()
@@ -155,7 +156,7 @@ fifo red_fifo (
     .data_in        (f_reg_blue.data_in),
     .data_out       (f_reg_blue.data_out),
     .fifo_full      (),
-    .fifo_empty     (),
+    .fifo_empty     (f_reg_blue.empty),
     .fifo_threshold (),
     .fifo_overflow  (),
     .fifo_underflow ()
@@ -295,7 +296,7 @@ always @ (*) begin
                 sd_st_d = rgb_out;
             end
         rgb_out :
-            if ( cs_st == 0) begin
+            if ( cs_st == 0 && !f_reg_red.empty) begin
                 read_from_fifo = 1;
                 R = f_reg_red.data_out;
                 G = f_reg_green.data_out;
