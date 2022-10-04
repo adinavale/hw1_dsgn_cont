@@ -540,7 +540,7 @@ module read_pointer (
     input reset_n,
 
     input read,
-    input fifo_pcnt,
+    input [3:0] fifo_pcnt,
     input fifo_empty,
     
     output logic [3:0] read_ptr,
