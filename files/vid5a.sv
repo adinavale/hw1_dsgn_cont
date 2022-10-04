@@ -65,6 +65,10 @@ typedef struct packed {
     logic [7:0] data_out;
     logic fifo_reset;
     logic empty;
+    logic fifo_threshold;
+    logic fifo_full;
+    logic fifo_overflow;
+    logic fifo_underflow;
 } f; //FIFO regs
 
 f f_reg_red, f_reg_green, f_reg_blue;
@@ -141,11 +145,11 @@ fifo red_fifo (
     .read           (read_from_fifo),
     .data_in        (f_reg_green.data_in),
     .data_out       (f_reg_green.data_out),
-    .fifo_full      (),
+    .fifo_full      (f_reg_green.fifo_full),
     .fifo_empty     (f_reg_green.empty),
-    .fifo_threshold (),
-    .fifo_overflow  (),
-    .fifo_underflow ()
+    .fifo_threshold (f_reg_green.fifo_threshold),
+    .fifo_overflow  (f_reg_green.fifo_overflow),
+    .fifo_underflow (f_reg_green.fifo_underflow)
     );
 
     fifo blue_fifo (
@@ -380,6 +384,13 @@ logic [4:0]     HC_count;
 logic [2:0]     Xcnt_count;
 logic [3:0]     Vcnt_count;
 
+//fifo signals
+logic gf_fifo_full;
+logic gf_fifo_empty;
+logic gf_fifo_threshold;
+logic gf_fifo_overflow;
+logic gf_fifo_underflow;
+
  always @ (*) begin
     clk_count = cnt_reg.counter;
     Ppter_count = cnt_reg.Pptr;
@@ -387,6 +398,13 @@ logic [3:0]     Vcnt_count;
     HC_count = cnt_reg.HC;
     Xcnt_count = cnt_reg.Xcnt;
     Vcnt_count = cnt_reg.Vcnt;
+
+    //fifo outputs
+    gf_fifo_full = f_reg_green.fifo_full;
+    gf_fifo_empty = f_reg_green.empty;
+    gf_fifo_threshold = f_reg_green.fifo_threshold;
+    gf_fifo_overflow = f_reg_green.fifo_overflow;
+    gf_fifo_underflow = f_reg_green.fifo_underflow;
  end
 
 endmodule
