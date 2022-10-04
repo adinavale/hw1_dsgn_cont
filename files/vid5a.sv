@@ -488,7 +488,7 @@ module storage (
     output logic [7:0] data_out
 );
 
-    logic [7:0] storage_array [15:0];
+    logic [31:0][31:0] storage_array;
 
     always_ff @(posedge clk) begin
         if (fifo_we) begin
