@@ -521,7 +521,9 @@ module storage (
         end
     end
 
-    assign data_out = storage_array[read_ptr[3:0]];
+    always @ (*) begin
+        data_out = storage_array[read_ptr[3:0]];
+    end
 endmodule
 
 module read_pointer (
