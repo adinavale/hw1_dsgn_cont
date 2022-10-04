@@ -1,27 +1,29 @@
 [*]
 [*] GTKWave Analyzer v3.3.61 (w)1999-2014 BSI
-[*] Tue Oct  4 00:21:19 2022
+[*] Tue Oct  4 02:09:17 2022
 [*]
 [dumpfile] "/home/015313389@SJSUAD.SJSU.EDU/ee_272/Homework/hw1_dsgn_cont/files/vid5.vcd"
-[dumpfile_mtime] "Tue Oct  4 00:13:00 2022"
-[dumpfile_size] 379853
+[dumpfile_mtime] "Tue Oct  4 01:54:09 2022"
+[dumpfile_size] 79877
 [savefile] "/home/015313389@SJSUAD.SJSU.EDU/ee_272/Homework/hw1_dsgn_cont/files/wave_config.gtkw"
-[timestart] 498200
+[timestart] 566500
 [size] 1280 617
 [pos] -51 -1
-*-16.000000 690000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-16.000000 801000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] top.
 [treeopen] top.v.
 [sst_width] 229
 [signals_width] 257
 [sst_expanded] 1
-[sst_vpaned_height] 202
-@29
+[sst_vpaned_height] 211
+@28
 top.clk
 @22
 top.i0.B[7:0]
 top.i0.G[7:0]
 top.i0.R[7:0]
+@29
+top.v.read_from_fifo
 @28
 top.i0.ackin
 @24
@@ -48,6 +50,8 @@ top.v.red_fifo.data_in[7:0]
 top.v.green_fifo.data_in[7:0]
 top.v.blue_fifo.data_in[7:0]
 @28
+top.v.gf_fifo_empty
+top.v.gf_fifo_threshold
 top.v.data_pres
 top.i0.hsync
 top.v.hblank
@@ -81,5 +85,9 @@ top.v.Vcnt_count[3:0]
 top.v.B[7:0]
 top.v.G[7:0]
 top.v.R[7:0]
+@28
+top.v.gf_fifo_full
+top.v.gf_fifo_overflow
+top.v.gf_fifo_underflow
 [pattern_trace] 1
 [pattern_trace] 0
