@@ -513,11 +513,11 @@ module storage (
     output logic [7:0] data_out
 );
 
-    logic [31:0] storage_array [31:0];
+    logic [7:0] storage_array [7:0];
 
     always_ff @(posedge clk) begin
         if (fifo_we) begin
-            storage_array[write_ptr[3:0]] = data_in;
+            storage_array[write_ptr[3:0]] <= data_in;
         end
     end
 
