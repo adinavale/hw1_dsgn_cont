@@ -295,7 +295,13 @@ always @ (*) begin
                 sd_st_d = rgb_out;
             end
         rgb_out :
-            if (hblank) begin
+            if ( cs_st == 0) begin
+                read_from_fifo = 1;
+                R = f_reg_red.data_out;
+                G = f_reg_green.data_out;
+                B = f_reg_blue.data_out;
+            end else if (hblank) begin
+                read_from_fifo = 0;
                 sd_st_d = sd_idle;
             end
     endcase
