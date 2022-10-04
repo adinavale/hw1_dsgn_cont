@@ -135,7 +135,8 @@ fifo red_fifo (
     .fifo_empty     (f_reg_red.empty),
     .fifo_threshold (),
     .fifo_overflow  (),
-    .fifo_underflow ()
+    .fifo_underflow (),
+    .fifo_pcnt      (cnt_reg.PC)
     );
 
     fifo green_fifo (
@@ -149,7 +150,9 @@ fifo red_fifo (
     .fifo_empty     (f_reg_green.empty),
     .fifo_threshold (f_reg_green.fifo_threshold),
     .fifo_overflow  (f_reg_green.fifo_overflow),
-    .fifo_underflow (f_reg_green.fifo_underflow)
+    .fifo_underflow (f_reg_green.fifo_underflow),
+    .fifo_pcnt      (cnt_reg.PC)
+
     );
 
     fifo blue_fifo (
@@ -163,7 +166,8 @@ fifo red_fifo (
     .fifo_empty     (f_reg_blue.empty),
     .fifo_threshold (),
     .fifo_overflow  (),
-    .fifo_underflow ()
+    .fifo_underflow (),
+    .fifo_pcnt      (cnt_reg.PC)
     );
 
 initial begin
@@ -454,6 +458,7 @@ module fifo (
     input reset_n,
     input write,
     input read,
+    input [3:0] fifo_pcnt,
     input [7:0] data_in,
 
     output [7:0] data_out,
@@ -474,6 +479,7 @@ module fifo (
 
     read_pointer read_inst (
         .read_ptr       (read_ptr),
+        .fifo_pcnt      (fifo_pcnt),
         .fifo_re        (fifo_re),
         .read           (read),
         .fifo_empty     (fifo_empty),
@@ -534,6 +540,7 @@ module read_pointer (
     input reset_n,
 
     input read,
+    input fifo_pcnt,
     input fifo_empty,
     
     output logic [3:0] read_ptr,
@@ -545,7 +552,7 @@ module read_pointer (
     always_ff @ (posedge clk or negedge reset_n) begin
         if (~reset_n) begin
             read_ptr <= 0;
-        end else if (fifo_re && (cnt_reg.PC == 0) ) begin
+        end else if (fifo_re && (fifo_pcnt == 0) ) begin
             read_ptr <= read_ptr + 1;
         end else begin
             read_ptr <= read_ptr;
