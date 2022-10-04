@@ -310,6 +310,9 @@ always @ (*) begin
                 G = G_out;
                 B = B_out;
             end else if (hblank) begin
+                R = 0;
+                G = 0;
+                B = 0;
                 read_from_fifo = 0;
                 sd_st_d = sd_idle;
             end
