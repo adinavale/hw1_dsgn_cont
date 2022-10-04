@@ -226,7 +226,7 @@ always @ (*) begin
                 df_st_d = wr_req;
             end
         tb_idle :
-            if ( (cmdin == 3'b000) && (hblank) ) begin
+            if ( (cmdin == 3'b000) && (hsync) ) begin
                 df_st_d = rgb_fetch;
             end
         rgb_fetch : 
