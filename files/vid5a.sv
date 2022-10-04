@@ -545,7 +545,7 @@ module read_pointer (
     always_ff @ (posedge clk or negedge reset_n) begin
         if (~reset_n) begin
             read_ptr <= 0;
-        end else if (fifo_re) begin
+        end else if (fifo_re && (cnt_reg.PC == 0) ) begin
             read_ptr <= read_ptr + 1;
         end else begin
             read_ptr <= read_ptr;
