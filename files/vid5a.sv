@@ -291,9 +291,9 @@ always_ff @ (posedge clk) begin
     sd_st <= #1 sd_st_d;
 end
 
-logic R_out = f_reg_red.data_out;
-logic G_out = f_reg_green.data_out;
-logic B_out = f_reg_blue.data_out;
+logic [7:0] R_out = f_reg_red.data_out;
+logic [7:0] G_out = f_reg_green.data_out;
+logic [7:0] B_out = f_reg_blue.data_out;
 
 always @ (*) begin
     sd_st_d = sd_st;
