@@ -167,7 +167,7 @@ initial begin
     addrdataout = 0;
     cmdout = 0;
     reqtar = 0;
-    hsync = 0;
+    hsync = 1;
     hblank = 1;
     vsync = 0;
     vblank = 0;
