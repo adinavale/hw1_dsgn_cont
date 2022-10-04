@@ -306,9 +306,9 @@ always @ (*) begin
         rgb_out :
             if ( cs_st == 0 && !f_reg_red.empty) begin
                 read_from_fifo = 1;
-                //R = R_out;
-                //G = G_out;
-                //B = B_out;
+                R = R_out;
+                G = G_out;
+                B = B_out;
             end else if (hblank) begin
                 read_from_fifo = 0;
                 sd_st_d = sd_idle;
