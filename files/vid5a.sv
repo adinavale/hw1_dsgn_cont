@@ -90,7 +90,7 @@ typedef enum {
     tb_idle,        //2
     rgb_fetch,      //3
     tb_rd_resp,     //4
-    reg_to_fifo,    //5
+    rgb_to_fifo,    //5
     idle            //6
 } program_register_states;
 
@@ -239,10 +239,10 @@ always @ (*) begin
 
         tb_rd_resp :
             begin
-                df_st_d = reg_to_fifo;
+                df_st_d = rgb_to_fifo;
                 cmdout = 3'b101; //Module gives write response to TB
             end
-        reg_to_fifo :
+        rgb_to_fifo :
             if ( (cmdin == 3'b011) || (cmdin == 3'b001) ) begin
                 data_pres = 1; //Data is ready to be pushed to fifo
             end else begin
