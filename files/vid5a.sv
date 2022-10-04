@@ -516,7 +516,7 @@ endmodule
 module storage (
     input clk,
     input fifo_we,
-    input [4:0] write_ptr, read_ptr,
+    input [3:0] write_ptr, read_ptr,
     input [7:0] data_in,
 
     output logic [7:0] data_out
@@ -567,7 +567,7 @@ module write_pointer (
     input write,
     input fifo_full,
 
-    output logic [4:0] write_ptr,
+    output logic [3:0] write_ptr,
     output fifo_we
 );
 
