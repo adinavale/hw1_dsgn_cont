@@ -291,6 +291,10 @@ always_ff @ (posedge clk) begin
     sd_st <= #1 sd_st_d;
 end
 
+logic R_out = f_reg_red.data_out;
+logic G_out = f_reg_green.data_out;
+logic B_out = f_reg_blue.data_out;
+
 always @ (*) begin
     sd_st_d = sd_st;
 
@@ -302,9 +306,9 @@ always @ (*) begin
         rgb_out :
             if ( cs_st == 0 && !f_reg_red.empty) begin
                 read_from_fifo = 1;
-                R = f_reg_red.data_out;
-                G = f_reg_green.data_out;
-                B = f_reg_blue.data_out;
+                R = R_out;
+                G = G_out;
+                B = B_out;
             end else if (hblank) begin
                 read_from_fifo = 0;
                 sd_st_d = sd_idle;
