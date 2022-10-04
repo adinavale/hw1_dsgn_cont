@@ -291,9 +291,9 @@ always_ff @ (posedge clk) begin
     sd_st <= #1 sd_st_d;
 end
 
-logic [7:0] R_out = f_reg_red.data_out;
-logic [7:0] G_out = f_reg_green.data_out;
-logic [7:0] B_out = f_reg_blue.data_out;
+logic [7:0] R_out;
+logic [7:0] G_out;
+logic [7:0] B_out;
 
 always @ (*) begin
     sd_st_d = sd_st;
@@ -409,6 +409,9 @@ logic gf_fifo_underflow;
     gf_fifo_threshold = f_reg_green.fifo_threshold;
     gf_fifo_overflow = f_reg_green.fifo_overflow;
     gf_fifo_underflow = f_reg_green.fifo_underflow;
+    R_out = f_reg_red.data_out;
+    G_out = f_reg_green.data_out;
+    B_out = f_reg_blue.data_out;
  end
 
 endmodule
