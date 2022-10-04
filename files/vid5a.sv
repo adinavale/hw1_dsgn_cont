@@ -350,12 +350,14 @@ always @ (*) begin
         hsync_high :
             if ( cnt_reg.HC >= 10 && cnt_reg.HC < 13 ) begin
                 hsync = 1;
+                hblank = 1;
             end else if ( cnt_reg.HC > 12 && cnt_reg.HC <= 14 ) begin
                 cs_st_d = back_porch;
             end
         back_porch :
             if ( cnt_reg.HC > 12 ) begin
                 hsync = 0;
+                hblank = 1;
             end else if ( cnt_reg.HC < 8 ) begin
                 cs_st_d = disp_pixels;
             end
