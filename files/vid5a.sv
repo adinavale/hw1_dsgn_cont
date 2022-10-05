@@ -325,6 +325,10 @@ always @ (*) begin
     endcase
 end
 
+always_ff @ (posedge hblank) begin
+    line_number <= line_number + 1;
+end
+
 //Counter state machine
 always_ff @ (posedge clk) begin //TODO: COME BACK AND ADD VCNT INCREMENTING AT POSEDGE OF HSYNC
     if (reset) begin
@@ -342,9 +346,6 @@ always_ff @ (posedge clk) begin //TODO: COME BACK AND ADD VCNT INCREMENTING AT P
             cnt_reg.Xcnt <= 0;
         end else if ( (cnt_reg.PC == 4)) begin
             cnt_reg.Xcnt <= cnt_reg.Xcnt + 1;
-        end
-        if ( cnt_reg.HC == 9 ) begin
-            line_number <= line_number + 1;
         end
     end
 end
