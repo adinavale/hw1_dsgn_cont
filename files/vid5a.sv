@@ -124,6 +124,8 @@ typedef enum {
 
 clocking_states cs_st, cs_st_d;
 
+logic [4:0] line_number;
+
 fifo red_fifo (
     .clk            (clk),
     .reset_n        (~reset),
@@ -183,6 +185,7 @@ initial begin
     R = 0;
     G = 0;
     B = 0;
+    line_number = 0;
 end
 
 //Data fetch state machine
@@ -341,6 +344,9 @@ always_ff @ (posedge clk) begin //TODO: COME BACK AND ADD VCNT INCREMENTING AT P
         end else if ( (cnt_reg.PC == 4)) begin
             cnt_reg.Xcnt <= cnt_reg.Xcnt + 1;
         end
+        if ( cnt_reg.HC == 9 ) begin
+            line_number <= line_number + 1;
+        end
     end
 end
 
@@ -353,7 +359,7 @@ always @ (*) begin
                 hblank = 0;
                 hsync = 0;
                 vsync = 0;
-                vblank = 0; //TODO: ADD RGB OUTPUTS
+                vblank = 0; 
             end else if (cnt_reg.HC >= 8) begin
                 cs_st_d = front_porch;
             end
