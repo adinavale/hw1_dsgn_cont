@@ -348,7 +348,7 @@ always_ff @ (posedge clk) begin //TODO: COME BACK AND ADD VCNT INCREMENTING AT P
             cnt_reg.Xcnt <= cnt_reg.Xcnt + 1;
         end
         if ( (cnt_reg.PC == 1) && (cnt_reg.HC == 9) ) begin
-            if (cnt_reg.Vcnt > 9) begin
+            if (cnt_reg.Vcnt > 8) begin
                 cnt_reg.Vcnt = 0;
             end else begin
                 cnt_reg.Vcnt <= cnt_reg.Vcnt + 1;
