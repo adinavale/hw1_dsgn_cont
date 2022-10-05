@@ -326,7 +326,7 @@ always @ (*) begin
 end
 
 always_ff @ (posedge hblank) begin
-    line_number <= (line_number + 1) - 1;
+    line_number <= line_number + 1;
 end
 
 //Counter state machine
