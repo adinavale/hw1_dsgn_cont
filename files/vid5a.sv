@@ -124,7 +124,7 @@ typedef enum {
 
 clocking_states cs_st, cs_st_d;
 
-logic [4:0] line_number;
+logic [4:0] line_number = 0;
 
 fifo red_fifo (
     .clk            (clk),
@@ -185,7 +185,6 @@ initial begin
     R = 0;
     G = 0;
     B = 0;
-    line_number = 0;
 end
 
 //Data fetch state machine
