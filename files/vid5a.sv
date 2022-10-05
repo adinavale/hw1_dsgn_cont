@@ -7,7 +7,7 @@ module vid5a(
     input [1:0] lenin, 
     input [31:0] addrdatain,
     input ackin,
-    input enable, //
+    input enable, 
 
     output logic [1:0] reqout,
     output logic [1:0] lenout,
@@ -15,8 +15,8 @@ module vid5a(
     output logic [2:0] cmdout,
     output logic [3:0] reqtar,
 
-    output logic hsync, //
-    output logic hblank, //
+    output logic hsync, 
+    output logic hblank, 
     output logic vsync,
     output logic vblank,
 
@@ -346,6 +346,9 @@ always_ff @ (posedge clk) begin //TODO: COME BACK AND ADD VCNT INCREMENTING AT P
             cnt_reg.Xcnt <= 0;
         end else if ( (cnt_reg.PC == 4)) begin
             cnt_reg.Xcnt <= cnt_reg.Xcnt + 1;
+        end
+        if ( (cnt_reg.PC == 1) && (cnt_reg.HC == 9) ) begin
+            cnt_reg.Vcnt <= cnt_reg.Vcnt + 1;
         end
     end
 end
