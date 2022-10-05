@@ -245,7 +245,7 @@ always @ (*) begin
                 df_st_d = tb_rd_resp;
                 cmdout = 3'b010; //Module makes read request
                 lenout = 2'b10; //Makes 4 transfers for a request
-                addrdataout = base_address; //TODO: UPDATE THIS AS YOU BUILD OUT THE STATE MACHINE!!!!!!!!!!!!!!!!!!!
+                addrdataout = base_address + (lineinc * (line_number - 1)); //TODO: UPDATE THIS AS YOU BUILD OUT THE STATE MACHINE!!!!!!!!!!!!!!!!!!!
             end 
 
         tb_rd_resp :
