@@ -362,7 +362,7 @@ always @ (*) begin
 
     case (cs_st)
         disp_pixels :
-            if ( cnt_reg.HC < 9 ) begin
+            if ( cnt_reg.HC < h1_reg.hsize ) begin
                 hblank = 0;
                 hsync = 0;
                 vsync = 0;
